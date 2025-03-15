@@ -11,10 +11,8 @@ const Header = () => {
     <header className="backdrop-blur-md bg-tech-gray/90 border-b border-tech-cyan/20 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="font-display text-2xl font-bold">
-          <span className="text-tech-cyan">&lt;</span>
-          <span className="text-tech-teal">Your</span>
-          <span className="text-tech-cyan">Name</span>
-          <span className="text-tech-cyan">/&gt;</span>
+          <span className="text-tech-teal">Ervin</span>
+          <span className="text-tech-cyan">Fernandez</span>
         </div>
 
         {/* Mobile menu button */}
@@ -57,10 +55,10 @@ const Header = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-cyan group-hover:w-full transition-all duration-300"></span>
           </a>
           <a
-            href="#about"
+            href="#experience"
             className="text-tech-light hover:text-tech-cyan transition duration-300 relative group"
           >
-            <span>About</span>
+            <span>Experience</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-cyan group-hover:w-full transition-all duration-300"></span>
           </a>
           <a
@@ -99,11 +97,11 @@ const Header = () => {
               &gt; Home
             </a>
             <a
-              href="#about"
+              href="#experience"
               className="text-tech-light hover:text-tech-cyan transition duration-300 py-2 border-l-2 border-transparent hover:border-tech-cyan pl-2"
               onClick={toggleMenu}
             >
-              &gt; About
+              &gt; Experience
             </a>
             <a
               href="#skills"

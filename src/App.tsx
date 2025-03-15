@@ -1,8 +1,7 @@
-import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import WorkExperience from "./components/WorkExperience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
@@ -29,20 +28,64 @@ function App() {
       <div className="relative z-10">
         <Header />
         <main>
-          <section id="home">
-            <Hero />
+          {/* Home/Hero Section - Primary background */}
+          <section id="home" className="relative">
+            <div className="absolute inset-0 bg-tech-dark z-0"></div>
+            <div className="relative z-10">
+              <Hero />
+            </div>
           </section>
-          <section id="about">
-            <About />
+
+          {/* Section Divider */}
+          <div className="w-full py-4 flex justify-center bg-tech-dark">
+            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
+          </div>
+
+          {/* Work Experience Section - Secondary background */}
+          <section id="experience" className="relative">
+            <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
+            <div className="relative z-10">
+              <WorkExperience />
+            </div>
           </section>
-          <section id="skills">
-            <Skills />
+
+          {/* Section Divider */}
+          <div className="w-full py-4 flex justify-center bg-tech-gray-dark/30">
+            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
+          </div>
+
+          {/* Skills Section - Primary background */}
+          <section id="skills" className="relative">
+            <div className="absolute inset-0 bg-tech-dark z-0"></div>
+            <div className="relative z-10">
+              <Skills />
+            </div>
           </section>
-          <section id="projects">
-            <Projects />
+
+          {/* Section Divider */}
+          <div className="w-full py-4 flex justify-center bg-tech-dark">
+            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
+          </div>
+
+          {/* Projects Section - Secondary background */}
+          <section id="projects" className="relative">
+            <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
+            <div className="relative z-10">
+              <Projects />
+            </div>
           </section>
-          <section id="contact">
-            <Contact />
+
+          {/* Section Divider */}
+          <div className="w-full py-4 flex justify-center bg-tech-gray-dark/30">
+            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
+          </div>
+
+          {/* Contact Section - Primary background */}
+          <section id="contact" className="relative">
+            <div className="absolute inset-0 bg-tech-dark z-0"></div>
+            <div className="relative z-10">
+              <Contact />
+            </div>
           </section>
         </main>
         <Footer />
