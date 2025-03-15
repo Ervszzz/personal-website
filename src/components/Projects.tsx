@@ -1,5 +1,6 @@
 import { useState } from "react";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
+import snakeGameImage from "../assets/images/projects/snake_game.png";
 
 interface Project {
   id: number;
@@ -29,14 +30,14 @@ const Projects = () => {
     },
     {
       id: 1,
-      title: "E-commerce Website",
+      title: "Snake Game",
       description:
-        "A fully responsive e-commerce platform built with React, Redux, and Firebase. Features include user authentication, product filtering, cart functionality, and payment processing.",
-      image: "https://via.placeholder.com/600x400?text=E-commerce+Project",
-      tags: ["react", "redux", "firebase"],
+        "The classic snake game built with Python and Turtle Graphics.",
+      image: snakeGameImage,
+      tags: ["Python"],
       demoLink: "#",
-      codeLink: "#",
-    },
+      codeLink: "https://github.com/Ervszzz/python-projects/tree/main/snake_game",
+      },
     {
       id: 2,
       title: "Task Management App",
@@ -160,7 +161,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="bg-tech-cyan hover:bg-tech-teal text-tech-dark px-4 py-2 transition duration-300 border border-tech-cyan font-tech text-sm"
                   >
-                    &lt;Live_Demo/&gt;
+                    Live Demo
                   </a>
                   <a
                     href={project.codeLink}
@@ -168,7 +169,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="bg-transparent hover:bg-tech-gray/30 text-tech-cyan px-4 py-2 transition duration-300 border border-tech-cyan font-tech text-sm"
                   >
-                    &lt;View_Code/&gt;
+                    View Code
                   </a>
                 </div>
               </div>
