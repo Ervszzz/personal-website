@@ -23,26 +23,35 @@ const Hero = () => {
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <div className="mb-2 inline-block">
               <span className="font-tech text-sm text-tech-cyan tracking-widest">
-                Software Engineer
+              Full-Stack Developer | AI & Data Engineer | DevOps Enthusiast
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 text-tech-light">
               <span className="block text-tech-teal">Hi, I'm</span>
               <span className="text-transparent bg-clip-text bg-tech-gradient">
-                Ervin
+                Ervin Fernandez
               </span>
             </h1>
             <div className="h-1 w-20 bg-tech-cyan mb-6 md:mx-0 mx-auto"></div>
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
               A passionate{" "}
-              <span className="text-tech-cyan">software developer</span>{" "}
+              <span className="text-tech-cyan">SOFTWARE ENGINEER</span>{" "}
               crafting elegant, user-friendly digital solutions with modern
-              technologies.
+              technologies, AI, Automation, and DevOps.
             </p>
 
             <div className="mb-6 max-w-lg mx-auto md:mx-0">
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+              <li className="flex items-center">
+                  <span className="inline-block w-2 h-2 bg-tech-purple mr-2"></span>
+                  <span className="text-tech-light/80">
+                    <span className="text-tech-purple font-medium">
+                    DevOps & AI:
+                    </span>{" "}
+                    AWS, ArgoCD, Datadog, Betterstack, GitHub Actions
+                  </span>
+                </li>
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-cyan mr-2"></span>
                   <span className="text-tech-light/80">
@@ -71,8 +80,8 @@ const Hero = () => {
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-pink mr-2"></span>
                   <span className="text-tech-light/80">
-                    <span className="text-tech-pink font-medium">Focus:</span>{" "}
-                    Responsive, Interactive UX
+                    <span className="text-tech-pink font-medium">Database:</span>{" "}
+                      PostgreSQL
                   </span>
                 </li>
               </ul>
@@ -119,7 +128,7 @@ const Hero = () => {
                   <h4 className="font-tech font-semibold text-tech-teal">
                     Location:
                   </h4>
-                  <p className="text-tech-light/80">Your City, Country</p>
+                  <p className="text-tech-light/80">Binmaley Pangasinan, Philippines</p>
                 </div>
                 <div>
                   <h4 className="font-tech font-semibold text-tech-teal">
