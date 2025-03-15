@@ -1,35 +1,160 @@
-import React from "react";
+import React, { useState } from "react";
 
 const WorkExperience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Software Developer",
-      company: "Tech Solutions Inc.",
-      period: "2021 - Present",
-      description:
-        "Developed and maintained web applications using React, TypeScript, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-      technologies: ["React", "TypeScript", "Node.js", "Express", "MongoDB"],
+      title: "Python Developer",
+      company: "Kodexa",
+      period: "October 2023 - Present",
+      summary:
+        "Python Developer with data engineering expertise, building AI/ML solutions and supporting system reliability.",
+      description: (
+        <>
+          <div className="mb-4">
+            <h5 className="text-tech-teal font-semibold mb-1">
+              Data Engineering & Analytics:
+            </h5>
+            <ul className="list-disc pl-5 space-y-1 text-tech-text">
+              <li>
+                Created and maintained automated reports from SQL queries to
+                meet business needs.
+              </li>
+              <li>
+                Knowledgeable in ETL processes, data extraction, transformation,
+                and loading.
+              </li>
+              <li>
+                Provide actionable insights through data analysis and reporting.
+              </li>
+            </ul>
+          </div>
+          <div className="mb-4">
+            <h5 className="text-tech-teal font-semibold mb-1">
+              AI/ML Development:
+            </h5>
+            <ul className="list-disc pl-5 space-y-1 text-tech-text">
+              <li>Contributed to AI/ML model development and deployment.</li>
+              <li>Handled model training, evaluation, and optimization.</li>
+              <li>Designed and refined prompts for large language models.</li>
+              <li>Optimized LLM performance for high-quality outputs.</li>
+            </ul>
+          </div>
+          <div className="mb-4">
+            <h5 className="text-tech-teal font-semibold mb-1">
+              System Monitoring & DevOps:
+            </h5>
+            <ul className="list-disc pl-5 space-y-1 text-tech-text">
+              <li>Monitor production environments using Datadog.</li>
+              <li>Respond to alerts from Betterstack.</li>
+              <li>Debug and fix errors in production environments.</li>
+              <li>Integrate AWS secrets into Python scripts.</li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-tech-teal font-semibold mb-1">
+              Documentation & Scripting:
+            </h5>
+            <ul className="list-disc pl-5 space-y-1 text-tech-text">
+              <li>Document Python scripts and incident reports in Notion.</li>
+              <li>
+                Developed and implemented automated solutions to improve
+                efficiency and reliability.
+              </li>
+            </ul>
+          </div>
+        </>
+      ),
+      technologies: [
+        "Python",
+        "Datadog",
+        "Betterstack",
+        "AWS",
+        "SQL",
+        "ETL",
+        "AI/ML",
+        "LLM",
+        "Notion",
+      ],
     },
     {
       id: 2,
-      title: "Frontend Developer",
-      company: "Digital Innovations",
-      period: "2019 - 2021",
-      description:
-        "Designed and implemented responsive user interfaces for web applications. Worked closely with UX designers to create intuitive and engaging user experiences.",
-      technologies: ["JavaScript", "HTML", "CSS", "Vue.js", "Sass"],
+      title: "Software Engineer",
+      company: "Giant International Software Station Inc.",
+      period: "October 2022 - October 2023",
+      summary:
+        "Full-stack developer and interim team leader with expertise in web apps and REST APIs.",
+      description: (
+        <ul className="list-disc pl-5 space-y-2 text-tech-text">
+          <li>
+            Created and designed web applications upon request of our Product
+            Manager.
+          </li>
+          <li>Performed tests before and after functionalities were added.</li>
+          <li>Fixed bugs discovered during development and testing.</li>
+          <li>Created REST APIs for application integration.</li>
+          <li>
+            Assumed the role of Temporary Point of Contact for the team during
+            the vacancy of team leader position.
+          </li>
+          <li>
+            Managed team schedules ensuring deadlines were met and projects
+            progressed smoothly.
+          </li>
+          <li>
+            Collaborated with team members to ensure seamless workflow and
+            efficient task distribution.
+          </li>
+        </ul>
+      ),
+      technologies: [
+        "Web Development",
+        "REST API",
+        "Testing",
+        "Team Leadership",
+        "Project Management",
+      ],
     },
     {
       id: 3,
-      title: "Web Development Intern",
-      company: "Creative Web Studios",
-      period: "2018 - 2019",
-      description:
-        "Assisted in the development of client websites and web applications. Gained hands-on experience with modern web development technologies and practices.",
-      technologies: ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
+      title: "Software Engineer",
+      company: "Lingayen Provincial Capitol",
+      period: "February 2021 - February 2022",
+      summary:
+        "Automation specialist who pioneered document processing with Google Vision and RPA.",
+      description: (
+        <ul className="list-disc pl-5 space-y-2 text-tech-text">
+          <li>
+            Implemented processing of unstructured documents using Google Vision
+            and Robotic Process Automation.
+          </li>
+          <li>
+            Took proactive steps to streamline certain business processes
+            through automation.
+          </li>
+          <li>Pioneer developer of the provincial library website.</li>
+        </ul>
+      ),
+      technologies: [
+        "Google Vision",
+        "RPA",
+        "Web Development",
+        "Process Automation",
+      ],
     },
   ];
+
+  // State to track which experience details are expanded
+  const [expandedDetails, setExpandedDetails] = useState<number[]>([]);
+
+  // Toggle expanded state for an experience
+  const toggleDetails = (id: number) => {
+    if (expandedDetails.includes(id)) {
+      setExpandedDetails(expandedDetails.filter((expId) => expId !== id));
+    } else {
+      setExpandedDetails([...expandedDetails, id]);
+    }
+  };
 
   // Add the keyframe animation to the document head
   React.useEffect(() => {
@@ -76,7 +201,7 @@ const WorkExperience = () => {
         {/* Timeline content */}
         <div className="relative z-10">
           {experiences.map((exp, index) => (
-            <div key={exp.id} className="mb-24 relative group">
+            <div key={exp.id} className="mb-16 relative group">
               {/* Timeline node */}
               <div className="absolute left-1/2 top-0 transform -translate-x-1/2 hidden md:block z-20">
                 <div className="w-8 h-8 rounded-full bg-tech-dark border-2 border-tech-border flex items-center justify-center">
@@ -113,7 +238,13 @@ const WorkExperience = () => {
                         {index === 0
                           ? "Current"
                           : `${experiences.length - index}${
-                              index === 1 ? "nd" : index === 2 ? "rd" : "th"
+                              experiences.length - index === 1
+                                ? "st"
+                                : experiences.length - index === 2
+                                ? "nd"
+                                : experiences.length - index === 3
+                                ? "rd"
+                                : "th"
                             } Position`}
                       </span>
                     </div>
@@ -146,13 +277,13 @@ const WorkExperience = () => {
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-tech-text mb-6 leading-relaxed">
-                      {exp.description}
+                    {/* Summary */}
+                    <p className="text-tech-light font-medium mb-4 leading-relaxed border-l-2 border-tech-cyan pl-3">
+                      {exp.summary}
                     </p>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {exp.technologies.map((tech, idx) => (
                         <span
                           key={idx}
@@ -162,6 +293,40 @@ const WorkExperience = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Toggle Details Button */}
+                    <button
+                      onClick={() => toggleDetails(exp.id)}
+                      className="w-full flex items-center justify-center py-2 px-4 bg-tech-dark border border-tech-border hover:border-tech-cyan text-tech-light text-sm rounded-md transition-colors duration-200 group"
+                    >
+                      <span className="mr-2">
+                        {expandedDetails.includes(exp.id) ? "Hide" : "Show"}{" "}
+                        Details
+                      </span>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          expandedDetails.includes(exp.id) ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Description - Collapsible */}
+                    {expandedDetails.includes(exp.id) && (
+                      <div className="mt-4 text-tech-text leading-relaxed border-t border-tech-border/30 pt-4 animate-fadeIn">
+                        {exp.description}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

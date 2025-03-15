@@ -1,4 +1,5 @@
 import { useState } from "react";
+import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 
 interface Project {
   id: number;
@@ -8,12 +9,24 @@ interface Project {
   tags: string[];
   demoLink: string;
   codeLink: string;
+  featured?: boolean;
 }
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const projects: Project[] = [
+    {
+      id: 4,
+      title: "Portfolio Website",
+      description:
+        "A modern tech-themed portfolio website built with React, TypeScript, and TailwindCSS. Features include responsive design, smooth animations, interactive navigation, and a tech-inspired UI with custom styling and components.",
+      image: portfolioImage,
+      tags: ["react", "typescript", "tailwindcss", "Artificial Intelligence"],
+      demoLink: "#",
+      codeLink: "https://github.com/yourusername/portfolio-website",
+      featured: true,
+    },
     {
       id: 1,
       title: "E-commerce Website",
@@ -41,16 +54,6 @@ const Projects = () => {
         "A weather application that provides real-time weather data and forecasts for locations worldwide. Utilizes external APIs and features interactive maps.",
       image: "https://via.placeholder.com/600x400?text=Weather+Dashboard",
       tags: ["javascript", "api", "css"],
-      demoLink: "#",
-      codeLink: "#",
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      description:
-        "A personal portfolio website showcasing my projects and skills. Built with React and TailwindCSS with smooth animations and responsive design.",
-      image: "https://via.placeholder.com/600x400?text=Portfolio+Website",
-      tags: ["react", "tailwindcss"],
       demoLink: "#",
       codeLink: "#",
     },
@@ -114,14 +117,25 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-tech-gray-dark/80 backdrop-blur-sm border border-tech-cyan/20 rounded-none overflow-hidden transition-all duration-300 hover:shadow-neon hover:border-tech-cyan/50 group"
+              className={`bg-tech-gray-dark/80 backdrop-blur-sm border ${
+                project.featured
+                  ? "border-tech-cyan/40 md:col-span-2 lg:col-span-3"
+                  : "border-tech-cyan/20"
+              } rounded-none overflow-hidden transition-all duration-300 hover:shadow-neon hover:border-tech-cyan/50 group`}
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`w-full ${
+                    project.featured ? "h-64 md:h-80" : "h-48"
+                  } object-cover transition-transform duration-500 group-hover:scale-105`}
                 />
+                {project.featured && (
+                  <div className="absolute top-0 right-0 bg-tech-cyan text-tech-dark px-3 py-1 font-tech text-sm">
+                    Featured
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-tech-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">

@@ -136,19 +136,28 @@ const Hero = () => {
 
             <div className="md:w-2/3 md:pl-12">
               <p className="text-tech-light/80 mb-6 leading-relaxed">
-                I create <span className="text-tech-cyan">beautiful</span>,{" "}
-                <span className="text-tech-teal">responsive</span> websites with
-                modern technologies to deliver{" "}
-                <span className="text-tech-purple">exceptional</span> user
-                experiences.
+                I develop <span className="text-tech-cyan">innovative</span>,{" "}
+                <span className="text-tech-teal">data-driven</span> solutions
+                that combine Python expertise with{" "}
+                <span className="text-tech-purple">AI/ML capabilities</span> and
+                modern web technologies.
               </p>
 
               <p className="text-tech-light/80 mb-6 leading-relaxed">
-                My journey in web development began 5 years ago, and since then,
-                I've worked on various projects ranging from small business
-                websites to complex web applications. I'm constantly learning
-                and adapting to new technologies to stay at the forefront of web
-                development.
+                My journey in software engineering spans Python development,
+                data engineering, and DevOps automation. I've built everything
+                from automated ETL pipelines to AI-powered applications and
+                responsive web interfaces. I'm passionate about optimizing
+                systems, automating processes, and creating technology that
+                solves real-world problems.
+              </p>
+
+              <p className="text-tech-light/80 mb-6 leading-relaxed">
+                I'm also a{" "}
+                <span className="text-tech-purple">DevOps enthusiast</span>,
+                currently exploring the DevOps methodology and best practices to
+                enhance system reliability, streamline deployment processes, and
+                improve collaboration between development and operations teams.
               </p>
             </div>
           </div>

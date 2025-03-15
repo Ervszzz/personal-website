@@ -27,7 +27,7 @@ function App() {
 
       <div className="relative z-10">
         <Header />
-        <main>
+        <main className="pt-16">
           {/* Home/Hero Section - Primary background */}
           <section id="home" className="relative">
             <div className="absolute inset-0 bg-tech-dark z-0"></div>
