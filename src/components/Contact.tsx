@@ -1,4 +1,5 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useRef, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -12,13 +13,23 @@ interface SubmitMessage {
   isError: boolean;
 }
 
+const EMAILJS_SERVICE_ID = "service_2fv7xym";
+const EMAILJS_TEMPLATE_ID = "template_2xkxcyv";
+const EMAILJS_PUBLIC_KEY = "Lfo0ZJ-TORHQmhSgw";
+
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<SubmitMessage | null>(
@@ -39,27 +50,64 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage({
-        text: "Your message has been sent successfully!",
-        isError: false,
-      });
+    console.log("Form data being sent:", formData);
+    console.log("Using EmailJS credentials:", {
+      serviceId: EMAILJS_SERVICE_ID,
+      templateId: EMAILJS_TEMPLATE_ID,
+      publicKey: EMAILJS_PUBLIC_KEY ? "Provided" : "Missing",
+    });
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+    // Alternative approach using emailjs.send instead of sendForm
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: `Senders Email: ${formData.email}\n\n${formData.message}`,
+    };
 
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        setSubmitMessage(null);
-      }, 5000);
-    }, 1500);
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then((result) => {
+        console.log("Email sent successfully:", result.text);
+        setIsSubmitting(false);
+        setSubmitMessage({
+          text: "Your message has been sent successfully!",
+          isError: false,
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitMessage(null);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Failed to send email. Detailed error:", error);
+        setIsSubmitting(false);
+        setSubmitMessage({
+          text: `Failed to send message: ${
+            error.text || "Please check console for details"
+          }`,
+          isError: true,
+        });
+
+        // Clear error message after 5 seconds
+        setTimeout(() => {
+          setSubmitMessage(null);
+        }, 5000);
+      });
   };
 
   return (
@@ -214,6 +262,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="md:col-span-3">
             <form
+              ref={form}
               onSubmit={handleSubmit}
               className="border border-tech-border bg-tech-card rounded-lg p-6 backdrop-blur-sm relative overflow-hidden"
             >
@@ -224,7 +273,7 @@ const Contact = () => {
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tech-purple opacity-50"></div>
 
               <h3 className="text-xl font-tech font-semibold text-tech-purple mb-6">
-                &lt;Send_Message /&gt;
+                Send Message
               </h3>
 
               {submitMessage && (
