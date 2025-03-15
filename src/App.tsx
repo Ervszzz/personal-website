@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ChatBot from "./components/ChatBot";
 import ParticlesBackground from "./components/ParticlesBackground";
 
 function App() {
@@ -93,6 +94,9 @@ function App() {
           </section>
         </main>
         <Footer />
+
+        {/* ChatBot Component */}
+        <ChatBot />
       </div>
     </div>
   );
