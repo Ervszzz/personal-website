@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <div className="absolute inset-0 bg-cyber-grid opacity-20 z-0"></div>
       <div className="absolute top-0 right-0 w-1/3 h-screen bg-tech-gradient opacity-10 blur-3xl z-0"></div>
       <div className="absolute bottom-0 left-0 w-1/3 h-screen bg-tech-gradient opacity-10 blur-3xl z-0"></div>
+
+      {/* Particles Background */}
+      <ParticlesBackground />
 
       {/* Additional tech elements */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-tech-purple/5 blur-xl z-0"></div>

@@ -1,8 +1,15 @@
 import profileImage from "../assets/images/profile/ervszz.png";
+import ParticlesBackground from "./ParticlesBackground";
 
 const Hero = () => {
   return (
     <section id="home" className="py-20 relative overflow-hidden">
+      {/* Particles background for Hero section */}
+      <ParticlesBackground
+        containerId="hero-particles"
+        className="absolute inset-0 z-0"
+      />
+
       {/* Animated tech background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-20 h-20 border border-tech-cyan opacity-20 animate-pulse-slow"></div>
