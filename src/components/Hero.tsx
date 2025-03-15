@@ -92,13 +92,13 @@ const Hero = () => {
                 href="#contact"
                 className="bg-tech-cyan hover:bg-tech-teal text-tech-dark font-bold py-3 px-6 rounded-none border border-tech-cyan hover:shadow-neon transition duration-300 font-tech"
               >
-                &lt; Contact_Me /&gt;
+                Contact Me
               </a>
               <a
                 href="#projects"
                 className="bg-transparent hover:bg-tech-gray/30 text-tech-cyan font-bold py-3 px-6 border border-tech-cyan rounded-none hover:shadow-neon transition duration-300 font-tech"
               >
-                &lt; View_Projects /&gt;
+                View Projects
               </a>
             </div>
           </div>
