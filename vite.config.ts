@@ -10,10 +10,14 @@ export default defineConfig({
     {
       name: "copy-404-html",
       closeBundle() {
-        // Copy 404.html to dist directory
-        if (fs.existsSync("public/404.html")) {
-          fs.copyFileSync("public/404.html", resolve("dist", "404.html"));
-          console.log("Copied 404.html to dist directory");
+        try {
+          // Copy 404.html to dist directory
+          if (fs.existsSync("public/404.html")) {
+            fs.copyFileSync("public/404.html", resolve("dist", "404.html"));
+            console.log("Copied 404.html to dist directory");
+          }
+        } catch (error) {
+          console.error("Error copying 404.html:", error);
         }
       },
     },
