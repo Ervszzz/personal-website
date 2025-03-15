@@ -1,3 +1,5 @@
+import profileImage from "../assets/images/profile/ervszz.png";
+
 const Hero = () => {
   return (
     <section id="home" className="py-20 relative overflow-hidden">
@@ -92,11 +94,13 @@ const Hero = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-tech-gray/30 flex items-center justify-center border border-tech-cyan relative group">
-              {/* Replace with your profile image */}
-              <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
-                👨‍💻
-              </div>
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-tech-gray/30 flex items-center justify-center border border-tech-cyan relative group overflow-hidden">
+              {/* Profile image */}
+              <img
+                src={profileImage}
+                alt="Ervin Joshua Fernandez"
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300"
+              />
               <div className="absolute inset-0 rounded-full border border-tech-cyan opacity-50 group-hover:opacity-100 group-hover:shadow-neon transition-all duration-500"></div>
             </div>
           </div>
