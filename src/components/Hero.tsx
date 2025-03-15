@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <div className="mb-2 inline-block">
               <span className="font-tech text-sm text-tech-cyan tracking-widest">
-              Full-Stack Developer | AI & Data Engineer | DevOps Enthusiast
+                Full-Stack Developer | AI & Data Engineer | DevOps Enthusiast
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 text-tech-light">
@@ -36,52 +36,45 @@ const Hero = () => {
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
               A passionate{" "}
-              <span className="text-tech-cyan">SOFTWARE ENGINEER</span>{" "}
-              crafting elegant, user-friendly digital solutions with modern
-              technologies, AI, Automation, and DevOps.
+              <span className="text-tech-cyan">SOFTWARE ENGINEER</span> crafting
+              elegant, user-friendly digital solutions with modern technologies,
+              AI, Automation, and DevOps.
             </p>
 
             <div className="mb-6 max-w-lg mx-auto md:mx-0">
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              <li className="flex items-center">
-                  <span className="inline-block w-2 h-2 bg-tech-purple mr-2"></span>
-                  <span className="text-tech-light/80">
-                    <span className="text-tech-purple font-medium">
-                    DevOps & AI:
-                    </span>{" "}
-                    AWS, ArgoCD, Datadog, Betterstack, GitHub Actions
-                  </span>
-                </li>
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-cyan mr-2"></span>
                   <span className="text-tech-light/80">
                     <span className="text-tech-teal font-medium">
                       Frontend:
                     </span>{" "}
-                    React, HTML, CSS, JavaScript
-                  </span>
-                </li>
-                <li className="flex items-center">
-                  <span className="inline-block w-2 h-2 bg-tech-purple mr-2"></span>
-                  <span className="text-tech-light/80">
-                    <span className="text-tech-purple font-medium">
-                      Styling:
-                    </span>{" "}
-                    Tailwind CSS
+                    React JS, HTML, CSS, JavaScript, TailWind CSS
                   </span>
                 </li>
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-teal mr-2"></span>
                   <span className="text-tech-light/80">
                     <span className="text-tech-cyan font-medium">Backend:</span>{" "}
-                    Python, PHP, Laravel
+                    Python, PHP, Laravel, C#, Mocha JS
+                  </span>
+                </li>
+                <li className="flex items-center">
+                  <span className="inline-block w-2 h-2 bg-tech-purple mr-2"></span>
+                  <span className="text-tech-light/80">
+                    <span className="text-tech-purple font-medium">
+                      DevOps & Automation:
+                    </span>{" "}
+                    DataDog, Betterstack, ArgoCD, GitHub Actions, RPA
                   </span>
                 </li>
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-pink mr-2"></span>
                   <span className="text-tech-light/80">
-                    <span className="text-tech-pink font-medium">Database:</span>{" "}
-                      PostgreSQL
+                    <span className="text-tech-pink font-medium">
+                      Tools & Workflow:
+                    </span>{" "}
+                    GitHub, Linear, Notion, Cronicle
                   </span>
                 </li>
               </ul>
@@ -128,7 +121,9 @@ const Hero = () => {
                   <h4 className="font-tech font-semibold text-tech-teal">
                     Location:
                   </h4>
-                  <p className="text-tech-light/80">Binmaley Pangasinan, Philippines</p>
+                  <p className="text-tech-light/80">
+                    Binmaley Pangasinan, Philippines
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-tech font-semibold text-tech-teal">
