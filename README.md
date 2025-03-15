@@ -1,98 +1,119 @@
 # Ervin Fernandez - Portfolio Website
 
-![Portfolio Screenshot](./src/assets/images/projects/portfolio_pic.png)
+A modern, interactive portfolio website built with React, TypeScript, and TailwindCSS, featuring a tech-themed design with interactive elements.
 
-## 🚀 Overview
+## 🌐 Live Demo
 
-A modern, tech-themed portfolio website showcasing my skills, projects, and professional experience. This portfolio is designed with a sleek, cyberpunk-inspired UI featuring animated elements, responsive design, and interactive components.
+Visit the live website: [https://ervzzz.github.io/personal-website/](https://ervzzz.github.io/personal-website/)
 
 ## ✨ Features
 
-- **Modern Tech Design**: Cyberpunk-inspired UI with animated elements and tech-themed components
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Interactive Navigation**: Fixed header with smooth scrolling and active section highlighting
-- **Comprehensive Sections**:
-  - Hero section with professional summary
-  - Detailed work experience with collapsible sections
-  - Skills categorized by specialty
-  - Project showcase with filtering capability
-  - Contact form
-- **Performance Optimized**: Fast loading times and smooth animations
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Interactive Particles Background**: Dynamic particle animations in the hero section
+- **AI FAQ Chatbot**: Simple AI-powered chatbot that answers questions about skills, experience, and contact information
+- **Interactive Resume Download**: Animated resume download experience
+- **Modern Tech Theme**: Sleek, tech-inspired design with animated elements
+- **Optimized Performance**: Fast loading times and smooth animations
 
 ## 🛠️ Technologies Used
 
-- **Frontend Framework**: React with TypeScript
-- **Styling**: TailwindCSS with custom tech theme
-- **Build Tool**: Vite
-- **Deployment**: GitHub Pages
+- **React 19**: For building the user interface
+- **TypeScript**: For type-safe code
+- **TailwindCSS**: For styling
+- **Vite**: For fast development and optimized builds
+- **tsparticles**: For the interactive particle background
+- **GitHub Pages**: For hosting
 
-## 🔧 Installation & Setup
+## 🚀 Getting Started
 
-1. **Clone the repository**
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Ervszzz/personal-website.git
+   git clone https://github.com/Ervzzz/personal-website.git
    cd personal-website
    ```
 
-2. **Install dependencies**
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. **Run development server**
+3. Start the development server:
 
    ```bash
    npm run dev
    ```
 
-   The site will be available at `http://localhost:5173/`
+4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-4. **Build for production**
-   ```bash
-   npm run build
+## 📝 Customization
+
+### Resume Files
+
+Place your resume files in the `public/resume/` directory with the following names:
+
+- `Ervin_Fernandez_Resume.pdf` - PDF format resume
+
+### Chatbot FAQs
+
+Modify the FAQ data in `src/components/ChatBot.tsx` to customize the chatbot responses.
+
+### Personal Information
+
+Update your personal information in the following files:
+
+- `src/components/Hero.tsx` - Main information and skills
+- `src/components/Contact.tsx` - Contact details
+- `src/components/WorkExperience.tsx` - Work history
+- `src/components/Projects.tsx` - Project showcase
+
+## 🔄 Deployment
+
+To deploy the website to GitHub Pages:
+
+1. Update the `homepage` field in `package.json` to match your GitHub username:
+
+   ```json
+   "homepage": "https://yourusername.github.io/personal-website"
    ```
 
-## 📁 Project Structure
+2. Update the `base` path in `vite.config.ts`:
 
-```
-src/
-├── assets/         # Images, icons, and other static assets
-├── components/     # React components
-├── App.tsx         # Main application component
-├── index.css       # Global styles
-└── main.tsx        # Application entry point
-```
+   ```typescript
+   base: "/personal-website/";
+   ```
 
-## 🎨 Customization
+3. Build and deploy:
+   ```bash
+   npm run deploy
+   ```
 
-The portfolio is designed to be easily customizable:
+This will build the project and push it to the `gh-pages` branch of your repository.
 
-- Update personal information in the Hero component
-- Modify work experience in the WorkExperience component
-- Add or remove skills in the Skills component
-- Update projects in the Projects component
-- Change colors and theme in the TailwindCSS configuration
+## 🤝 Contributing
 
-## 📱 Responsive Design
-
-The portfolio is fully responsive and optimized for:
-
-- Desktop (1200px+)
-- Laptop (1024px)
-- Tablet (768px)
-- Mobile (480px)
-
-## 🔗 Links
-
-- [Live Demo](#)
-- [GitHub Repository](https://github.com/Ervszzz/personal-website)
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Ervzzz/personal-website/issues).
 
 ## 📄 License
 
-This project is proprietary and protected by copyright law. All rights reserved. The source code may not be reproduced, distributed, or used without explicit written permission from Ervin Fernandez. See the LICENSE file for details.
+This project is [MIT](LICENSE) licensed.
+
+## 👨‍💻 Author
+
+**Ervin Joshua Fernandez**
+
+- GitHub: [@Ervzzz](https://github.com/Ervzzz)
+- LinkedIn: [Ervin Fernandez](https://www.linkedin.com/in/ervin-fernandez/)
+- Email: ervsfernandez21@gmail.com
 
 ---
 
-Designed and developed by Ervin Fernandez © 2024
+⭐️ From [Ervzzz](https://github.com/Ervzzz)
