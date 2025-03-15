@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import InteractiveResumeDownload from "./InteractiveResumeDownload";
 
 interface FormData {
   name: string;
@@ -135,7 +136,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-tech-teal">Email</h4>
-                    <p className="text-tech-light/70">ervsfernandez21@gmail.com</p>
+                    <p className="text-tech-light/70">
+                      ervsfernandez21@gmail.com
+                    </p>
                   </div>
                 </div>
 
@@ -164,7 +167,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-tech-teal">Location</h4>
-                    <p className="text-tech-light/70">Binmaley Pangasinan, Philippines</p>
+                    <p className="text-tech-light/70">
+                      Binmaley Pangasinan, Philippines
+                    </p>
                   </div>
                 </div>
               </div>
@@ -203,6 +208,12 @@ const Contact = () => {
                     </svg>
                   </a>
                 </div>
+              </div>
+
+              {/* Interactive Resume Download */}
+              <div className="mt-8 pt-6 border-t border-tech-border/30">
+                <h4 className="font-medium text-tech-teal mb-4">Resume</h4>
+                <InteractiveResumeDownload />
               </div>
             </div>
           </div>

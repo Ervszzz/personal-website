@@ -1,0 +1,44 @@
+ERVIN JOSHUA FERNANDEZ
+Software Engineer | AI & Data Engineer | DevOps Enthusiast
+ervsfernandez21@gmail.com | +639457058871 | Binmaley Pangasinan, Philippines
+linkedin.com/in/ervin-fernandez | github.com/Ervszzz
+
+PROFESSIONAL SUMMARY
+--------------------------
+Innovative Software Engineer with expertise in Python development, data engineering, and DevOps automation. Skilled in building everything from automated ETL pipelines to AI-powered applications and responsive web interfaces. Passionate about optimizing systems, automating processes, and creating technology that solves real-world problems.
+
+SKILLS
+--------------------------
+Frontend: React JS, HTML, CSS, JavaScript, TailWind CSS
+Backend: Python, PHP, Laravel, C#, Mocha JS
+DevOps & Automation: DataDog, Betterstack, ArgoCD, GitHub Actions, RPA
+Tools & Workflow: GitHub, Linear, Notion, Cronicle
+
+WORK EXPERIENCE
+--------------------------
+Software Engineer
+Company Name | Location | Date - Present
+
+- Developed and maintained web applications using React, PHP, and Python
+- Implemented automated ETL pipelines for data processing
+- Collaborated with cross-functional teams to deliver high-quality software solutions
+- Utilized DevOps practices to streamline deployment processes
+
+EDUCATION
+--------------------------
+Bachelor of Science in Computer Science
+University Name | Graduation Year
+
+PROJECTS
+--------------------------
+Portfolio Website
+- Developed a responsive portfolio website using React and TailwindCSS
+- Implemented interactive features including particles animation and AI chatbot
+- Deployed using GitHub Pages with automated CI/CD pipeline
+
+[Additional projects would be listed here]
+
+CERTIFICATIONS
+--------------------------
+- Certification Name | Issuing Organization | Year
+- Certification Name | Issuing Organization | Year 
