@@ -272,13 +272,12 @@ const WorkExperience = () => {
                       {/* Tech separator */}
                       <div className="flex items-center mb-4">
                         <div className="h-px w-12 bg-tech-border"></div>
-                        <div className="mx-2 w-3 h-3 rounded-sm bg-tech-dark border border-tech-cyan rotate-45 group-hover:bg-tech-cyan/20 transition-colors duration-300"></div>
                         <div className="h-px flex-grow bg-gradient-to-r from-tech-border to-transparent"></div>
                       </div>
                     </div>
 
                     {/* Summary */}
-                    <p className="text-tech-light font-medium mb-4 leading-relaxed border-l-2 border-tech-cyan pl-3">
+                    <p className="text-tech-light font-medium mb-4 leading-relaxed">
                       {exp.summary}
                     </p>
 

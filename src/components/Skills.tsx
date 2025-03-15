@@ -34,7 +34,7 @@ const Skills = () => {
     {
       id: "database",
       title: "Database",
-      color: "tech-yellow",
+      color: "tech-cyan",
       skills: ["PostgreSQL"],
     },
   ];
@@ -49,7 +49,6 @@ const Skills = () => {
     "Zoom",
     "Google Meet",
     "Microsoft Teams",
-    
   ];
 
   return (
@@ -75,7 +74,7 @@ const Skills = () => {
         </div>
 
         {/* Main Skills Card */}
-        <div className="bg-tech-card border border-tech-border rounded-lg p-6 backdrop-blur-sm relative overflow-hidden">
+        <div className="bg-tech-gray border border-tech-teal/30 rounded-lg p-6 backdrop-blur-sm relative overflow-hidden">
           {/* Tech corner accents */}
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tech-cyan opacity-50"></div>
           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tech-cyan opacity-50"></div>
@@ -95,7 +94,7 @@ const Skills = () => {
                   {category.title}
                 </h3>
 
-                <div className="space-y-2 pl-4 border-l border-tech-border/30">
+                <div className="space-y-2 pl-4 border-l border-tech-teal/30">
                   {category.skills.map((skill, index) => (
                     <div key={index} className="group flex items-center">
                       <div
@@ -114,7 +113,7 @@ const Skills = () => {
 
         {/* Additional Skills */}
         <div className="mt-8">
-          <div className="bg-tech-card border border-tech-border rounded-lg p-5 backdrop-blur-sm">
+          <div className="bg-tech-gray border border-tech-teal/30 rounded-lg p-5 backdrop-blur-sm">
             <h3 className="text-lg font-tech font-semibold text-tech-light mb-4 text-center">
               Additional Tools
             </h3>
@@ -122,7 +121,7 @@ const Skills = () => {
               {additionalSkills.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1.5 bg-tech-dark border border-tech-border/50 text-tech-light/80 text-sm rounded hover:border-tech-cyan hover:text-tech-cyan transition-colors duration-300"
+                  className="px-3 py-1.5 bg-tech-dark border border-tech-teal/50 text-tech-light/80 text-sm rounded hover:border-tech-cyan hover:text-tech-cyan transition-colors duration-300"
                 >
                   {skill}
                 </span>

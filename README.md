@@ -4,7 +4,7 @@ A modern, interactive portfolio website built with React, TypeScript, and Tailwi
 
 ## 🌐 Live Demo
 
-Visit the live website: [https://ervzzz.github.io/personal-website/](https://ervzzz.github.io/personal-website/)
+Visit the live website: [https://ervszzz.github.io/personal-website/](https://ervszzz.github.io/personal-website/)
 
 ## ✨ Features
 
