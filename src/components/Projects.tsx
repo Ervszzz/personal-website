@@ -24,7 +24,7 @@ const Projects = () => {
       image: portfolioImage,
       tags: ["react", "typescript", "tailwindcss", "Artificial Intelligence"],
       demoLink: "#",
-      codeLink: "https://github.com/yourusername/portfolio-website",
+      codeLink: "https://github.com/Ervszzz/personal-website",
       featured: true,
     },
     {
