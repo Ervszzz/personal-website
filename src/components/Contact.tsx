@@ -62,7 +62,7 @@ const Contact = () => {
       from_name: formData.name,
       from_email: formData.email,
       subject: formData.subject,
-      message: `Senders Email: ${formData.email}\n\n${formData.message}`,
+      message: `Sender's Name: ${formData.name}\nSender's Email: ${formData.email}\nSender's Subject: ${formData.subject}\n${formData.message}`,
     };
 
     emailjs
