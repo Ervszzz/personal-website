@@ -33,7 +33,7 @@ const faqs: FAQ[] = [
       "Tell me about your experience",
     ],
     answer:
-      "I have experience as a Software Engineer developing applications with modern technologies. My journey spans Python development, data engineering, and DevOps automation. I've built everything from automated ETL pipelines to AI-powered applications and responsive web interfaces.",
+      "I have experience as a Software Engineer developing applications with modern technologies. His journey spans Python development, data engineering, and DevOps automation. I've built everything from automated ETL pipelines to AI-powered applications and responsive web interfaces.",
   },
   {
     questions: [
@@ -43,7 +43,7 @@ const faqs: FAQ[] = [
       "Contact information",
     ],
     answer:
-      "You can reach me through the contact form on this website, or directly via email at your.email@example.com. I'm also available on LinkedIn at linkedin.com/in/yourprofile.",
+      "You can reach me through the contact form on this website, or directly via email at ervsfernandez21@gmail.com. I'm also available on LinkedIn linkedin.com/in/ervin-fernandez/",
   },
   {
     questions: [
@@ -52,7 +52,7 @@ const faqs: FAQ[] = [
       "Portfolio projects",
     ],
     answer:
-      "I've worked on various projects including web applications, data pipelines, and automation tools. You can see details of my projects in the Projects section of this portfolio.",
+      "He has worked on various projects including web applications, data pipelines, and automation tools. You can see details of his projects in the Projects section of this portfolio.",
   },
   {
     questions: [
@@ -61,7 +61,7 @@ const faqs: FAQ[] = [
       "Job availability",
     ],
     answer:
-      "Yes, I'm currently available for full-time positions. I'm particularly interested in roles involving software engineering, data engineering, or DevOps.",
+      "Yes, he is currently available for full-time positions. I'm particularly interested in roles involving software engineering, data engineering, or DevOps.",
   },
   {
     questions: [
@@ -70,7 +70,7 @@ const faqs: FAQ[] = [
       "Educational background",
     ],
     answer:
-      "I have a degree in Computer Science with a focus on software development and data engineering.",
+      "He has a degree in Computer Science with a focus on software development and data engineering.",
   },
   {
     questions: ["hello", "hi", "hey", "greetings", "what's up"],

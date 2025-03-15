@@ -1,5 +1,6 @@
 import profileImage from "../assets/images/profile/ervszz.png";
 import ParticlesBackground from "./ParticlesBackground";
+import ResumeDownload from "./ResumeDownload";
 
 const Hero = () => {
   return (
@@ -100,6 +101,7 @@ const Hero = () => {
               >
                 View Projects
               </a>
+              <ResumeDownload />
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
