@@ -107,7 +107,7 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row items-start">
             <div className="md:w-1/3 mb-8 md:mb-0">
               <h3 className="text-2xl font-tech font-semibold text-tech-cyan mb-4">
-                &lt;Who_am_I /&gt;
+                Ervin Joshua Fernandez
               </h3>
 
               <div className="grid grid-cols-1 gap-4 mb-6">
