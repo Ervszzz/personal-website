@@ -1,6 +1,7 @@
 import { useState } from "react";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
+import f1HubImage from "../assets/images/projects/f1_hub.png";
 
 interface Project {
   id: number;
@@ -18,7 +19,19 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      id: 4,
+      id: 1,
+      title: "Formula 1 HUB",
+      description:
+        "Real-time Formula 1 data interface. Access race telemetry, driver statistics, and circuit analytics.",
+      image: f1HubImage,
+      tags: ["React", "Javascript", "TailwindCSS", "Artificial Intelligence"],
+      demoLink: "https://formula1-hub.vercel.app",
+      codeLink:
+        "https://github.com/Ervszzz/formula1-hub",
+      featured: true,
+    },
+    {
+      id: 2,
       title: "Portfolio Website",
       description:
         "A modern tech-themed portfolio website built with React, TypeScript, TailwindCSS, and Artificial Intelligence. Features include responsive design, smooth animations, interactive navigation, and a tech-inspired UI with custom styling and components.",
@@ -26,10 +39,10 @@ const Projects = () => {
       tags: ["react", "typescript", "tailwindcss", "Artificial Intelligence"],
       demoLink: "#",
       codeLink: "https://github.com/Ervszzz/personal-website",
-      featured: true,
+      featured: false,
     },
     {
-      id: 1,
+      id: 3,
       title: "Snake Game",
       description:
         "The classic snake game built with Python and Turtle Graphics.",
@@ -39,6 +52,7 @@ const Projects = () => {
       codeLink:
         "https://github.com/Ervszzz/python-projects/tree/main/snake_game",
     },
+
   ];
 
   const filters = [
