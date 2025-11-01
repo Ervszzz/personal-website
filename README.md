@@ -102,10 +102,6 @@ This will build the project and push it to the `gh-pages` branch of your reposit
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Ervzzz/personal-website/issues).
 
-## 📄 License
-
-This project is [MIT](LICENSE) licensed.
-
 ## 👨‍💻 Author
 
 **Ervin Joshua Fernandez**
