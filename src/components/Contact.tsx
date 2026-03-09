@@ -45,6 +45,9 @@ const Contact = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    // Honeypot: bots fill hidden fields, humans don't
+    const form = e.target as HTMLFormElement;
+    if ((form.elements.namedItem("website") as HTMLInputElement)?.value) return;
     setIsSubmitting(true);
 
     const templateParams = {
@@ -197,6 +200,16 @@ const Contact = () => {
               <h3 className="text-xl font-tech font-semibold text-tech-purple mb-6">
                 Send Message
               </h3>
+
+              {/* Honeypot field — hidden from real users, bots fill it */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="absolute -left-full opacity-0 pointer-events-none"
+                aria-hidden="true"
+              />
 
               {submitMessage && (
                 <div

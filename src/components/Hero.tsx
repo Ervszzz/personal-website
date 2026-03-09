@@ -175,7 +175,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <h4 className="font-tech font-semibold text-tech-teal">Availability:</h4>
-                  <p className="text-tech-light/80">Full-time</p>
+                  <p className="text-tech-light/80">Employed · Open to opportunities</p>
                 </div>
               </div>
             </div>
