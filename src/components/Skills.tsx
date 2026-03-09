@@ -17,6 +17,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "DataDog", icon: "devicon-datadog-plain" },
       { name: "Betterstack", icon: "" },
+      { name: "incident.io", icon: "" },
       { name: "ArgoCD", icon: "devicon-argocd-plain" },
       { name: "GitHub Actions", icon: "devicon-githubactions-plain" },
       { name: "RPA", icon: "" },

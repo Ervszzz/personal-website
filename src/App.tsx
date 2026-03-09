@@ -4,9 +4,11 @@ import Hero from "./components/Hero";
 import WorkExperience from "./components/WorkExperience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
+import BackToTop from "./components/BackToTop";
 import ParticlesBackground from "./components/ParticlesBackground";
 
 const SectionDivider = ({ bg = "bg-tech-dark" }: { bg?: string }) => (
@@ -79,8 +81,17 @@ function App() {
 
           <SectionDivider bg="bg-tech-gray-dark/30" />
 
-          <section id="contact" className="relative">
+          <section id="education" className="relative">
             <div className="absolute inset-0 bg-tech-dark z-0"></div>
+            <div className="relative z-10">
+              <Education />
+            </div>
+          </section>
+
+          <SectionDivider bg="bg-tech-dark" />
+
+          <section id="contact" className="relative">
+            <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
             <div className="relative z-10">
               <Contact />
             </div>
@@ -89,6 +100,7 @@ function App() {
         <Footer />
 
         <ChatBot />
+        <BackToTop />
       </div>
     </div>
   );

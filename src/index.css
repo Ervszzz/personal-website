@@ -100,6 +100,18 @@ p {
   transform: translateY(0);
 }
 
+/* Section fade-in on load */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-fade {
+  animation: fade-in-up 0.5s ease both;
+}
+main > section {
+  animation: fade-in-up 0.5s ease both;
+}
+
 /* WorkExperience timeline animation */
 @keyframes timeline-pulse {
   0% { transform: translateY(-100%) translateX(-50%); opacity: 0; }
