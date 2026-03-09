@@ -89,6 +89,16 @@ p {
   @apply text-3xl font-bold text-center mb-12;
 }
 
+/* WorkExperience timeline animation */
+@keyframes timeline-pulse {
+  0% { transform: translateY(-100%) translateX(-50%); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(1000%) translateX(-50%); opacity: 0; }
+}
+.animate-timeline-pulse {
+  animation: timeline-pulse 10s infinite;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   h1 {

@@ -9,6 +9,16 @@ import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import ParticlesBackground from "./components/ParticlesBackground";
 
+const SectionDivider = ({ bg = "bg-tech-dark" }: { bg?: string }) => (
+  <div className={`w-full py-6 flex justify-center items-center gap-2 ${bg}`}>
+    <div className="w-12 h-px bg-gradient-to-r from-transparent to-tech-purple/60" />
+    <div className="w-1.5 h-1.5 rounded-full bg-tech-purple/60" />
+    <div className="w-20 h-px bg-gradient-to-r from-tech-purple/60 via-tech-cyan to-tech-teal/60" />
+    <div className="w-1.5 h-1.5 rounded-full bg-tech-cyan/60" />
+    <div className="w-12 h-px bg-gradient-to-l from-transparent to-tech-teal/60" />
+  </div>
+);
+
 function App() {
   return (
     <div className="min-h-screen bg-tech-dark font-tech relative overflow-hidden">
@@ -33,7 +43,6 @@ function App() {
       <div className="relative z-10">
         <Header />
         <main className="pt-16">
-          {/* Home/Hero Section - Primary background */}
           <section id="home" className="relative">
             <div className="absolute inset-0 bg-tech-dark z-0"></div>
             <div className="relative z-10">
@@ -41,12 +50,8 @@ function App() {
             </div>
           </section>
 
-          {/* Section Divider */}
-          <div className="w-full py-4 flex justify-center bg-tech-dark">
-            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
-          </div>
+          <SectionDivider bg="bg-tech-dark" />
 
-          {/* Work Experience Section - Secondary background */}
           <section id="experience" className="relative">
             <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
             <div className="relative z-10">
@@ -54,12 +59,8 @@ function App() {
             </div>
           </section>
 
-          {/* Section Divider */}
-          <div className="w-full py-4 flex justify-center bg-tech-gray-dark/30">
-            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
-          </div>
+          <SectionDivider bg="bg-tech-gray-dark/30" />
 
-          {/* Skills Section - Primary background */}
           <section id="skills" className="relative">
             <div className="absolute inset-0 bg-tech-dark z-0"></div>
             <div className="relative z-10">
@@ -67,12 +68,8 @@ function App() {
             </div>
           </section>
 
-          {/* Section Divider */}
-          <div className="w-full py-4 flex justify-center bg-tech-dark">
-            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
-          </div>
+          <SectionDivider bg="bg-tech-dark" />
 
-          {/* Projects Section - Secondary background */}
           <section id="projects" className="relative">
             <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
             <div className="relative z-10">
@@ -80,12 +77,8 @@ function App() {
             </div>
           </section>
 
-          {/* Section Divider */}
-          <div className="w-full py-4 flex justify-center bg-tech-gray-dark/30">
-            <div className="w-24 h-px bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal"></div>
-          </div>
+          <SectionDivider bg="bg-tech-gray-dark/30" />
 
-          {/* Contact Section - Primary background */}
           <section id="contact" className="relative">
             <div className="absolute inset-0 bg-tech-dark z-0"></div>
             <div className="relative z-10">
@@ -95,7 +88,6 @@ function App() {
         </main>
         <Footer />
 
-        {/* ChatBot Component */}
         <ChatBot />
       </div>
     </div>

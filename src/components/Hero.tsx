@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <div className="mb-2 inline-block">
               <span className="font-tech text-sm text-tech-cyan tracking-widest">
-                Full-Stack Developer | AI & Data Engineer | DevOps Enthusiast
+                Site Reliability Engineer | AI & Data Engineer | DevOps
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 text-tech-light">
@@ -43,7 +43,7 @@ const Hero = () => {
             <div className="h-1 w-20 bg-tech-cyan mb-6 md:mx-0 mx-auto"></div>
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
-              A passionate{" "}
+              A {" "}
               <span className="text-tech-cyan">SOFTWARE ENGINEER</span> crafting
               elegant, user-friendly digital solutions with modern technologies,
               AI, Automation, and DevOps.
