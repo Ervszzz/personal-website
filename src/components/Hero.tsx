@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
-              A passionate{" "}
+              A {" "}
               <span className="text-tech-cyan">SITE RELIABILITY ENGINEER</span>{" "}
               keeping systems reliable, deployments safe, and incidents short —
               with a background in Python, AI, and full-stack development.
@@ -204,6 +204,25 @@ const Hero = () => {
                 engineering teams faster and more confident in their deployments.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* GitHub Stats */}
+        <div className="mt-12 pt-8 border-t border-tech-border/30">
+          <h3 className="font-tech text-tech-teal text-xs tracking-widest uppercase mb-6 text-center">
+            GitHub Activity
+          </h3>
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=Ervszzz&show_icons=true&bg_color=0B0C10&border_color=66FCF1&title_color=66FCF1&text_color=C5C6C7&icon_color=45A29E&hide_border=false&count_private=true"
+              alt="Ervin's GitHub Stats"
+              className="rounded-lg max-w-full"
+            />
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ervszzz&layout=compact&bg_color=0B0C10&border_color=66FCF1&title_color=66FCF1&text_color=C5C6C7&hide_border=false"
+              alt="Ervin's Top Languages"
+              className="rounded-lg max-w-full"
+            />
           </div>
         </div>
       </div>
