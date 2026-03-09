@@ -1,61 +1,64 @@
+interface SkillCategory {
+  id: string;
+  title: string;
+  textClass: string;
+  dotClass: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    id: "devops",
+    title: "DevOps & Automation",
+    textClass: "text-tech-purple",
+    dotClass: "bg-tech-purple",
+    skills: ["DataDog", "Betterstack", "ArgoCD", "GitHub Actions", "RPA", "AWS"],
+  },
+  {
+    id: "frontend",
+    title: "Frontend",
+    textClass: "text-tech-cyan",
+    dotClass: "bg-tech-cyan",
+    skills: ["React JS", "HTML", "CSS", "JavaScript", "TailWind CSS"],
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    textClass: "text-tech-teal",
+    dotClass: "bg-tech-teal",
+    skills: ["Python", "PHP", "Laravel", "C#", "Mocha JS"],
+  },
+  {
+    id: "tools",
+    title: "Tools & Workflow",
+    textClass: "text-tech-pink",
+    dotClass: "bg-tech-pink",
+    skills: ["GitHub", "Linear", "Notion", "Cronicle"],
+  },
+  {
+    id: "database",
+    title: "Database",
+    textClass: "text-tech-cyan",
+    dotClass: "bg-tech-cyan",
+    skills: ["PostgreSQL"],
+  },
+];
+
+const additionalSkills = [
+  "Slack",
+  "Azure DevOps",
+  "Linear",
+  "Microsoft Suite",
+  "Google Suite",
+  "Jupyter Hub",
+  "Zoom",
+  "Google Meet",
+  "Microsoft Teams",
+];
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      id: "devops",
-      title: "DevOps & Automation",
-      color: "tech-purple",
-      skills: [
-        "DataDog",
-        "Betterstack",
-        "ArgoCD",
-        "GitHub Actions",
-        "RPA",
-        "AWS",
-      ],
-    },
-    {
-      id: "frontend",
-      title: "Frontend",
-      color: "tech-cyan",
-      skills: ["React JS", "HTML", "CSS", "JavaScript", "TailWind CSS"],
-    },
-    {
-      id: "backend",
-      title: "Backend",
-      color: "tech-teal",
-      skills: ["Python", "PHP", "Laravel", "C#", "Mocha JS"],
-    },
-    {
-      id: "tools",
-      title: "Tools & Workflow",
-      color: "tech-pink",
-      skills: ["GitHub", "Linear", "Notion", "Cronicle"],
-    },
-    {
-      id: "database",
-      title: "Database",
-      color: "tech-cyan",
-      skills: ["PostgreSQL"],
-    },
-  ];
-
-  const additionalSkills = [
-    "Slack",
-    "Azure DevOps",
-    "Linear",
-    "Microsoft Suite",
-    "Google Suite",
-    "Jupyter Hub",
-    "Zoom",
-    "Google Meet",
-    "Microsoft Teams",
-  ];
-
   return (
-    <section
-      id="skills"
-      className="py-20 bg-tech-dark relative overflow-hidden"
-    >
+    <section id="skills" className="py-20 bg-tech-dark relative overflow-hidden">
       {/* Tech background elements */}
       <div className="absolute inset-0 bg-cyber-grid opacity-10 z-0"></div>
       <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-tech-purple/5 blur-3xl z-0"></div>
@@ -63,7 +66,7 @@ const Skills = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-tech-light mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-tech-cyan via-tech-teal to-tech-purple mb-4">
             Technical Skills
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal mx-auto"></div>
@@ -81,25 +84,18 @@ const Skills = () => {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tech-cyan opacity-50"></div>
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tech-cyan opacity-50"></div>
 
-          {/* Skills Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {skillCategories.map((category) => (
               <div key={category.id} className="relative">
-                <h3
-                  className={`text-lg font-tech font-semibold text-${category.color} mb-3 flex items-center`}
-                >
-                  <span
-                    className={`inline-block w-2 h-2 bg-${category.color} mr-2`}
-                  ></span>
+                <h3 className={`text-lg font-tech font-semibold ${category.textClass} mb-3 flex items-center`}>
+                  <span className={`inline-block w-2 h-2 ${category.dotClass} mr-2`}></span>
                   {category.title}
                 </h3>
 
                 <div className="space-y-2 pl-4 border-l border-tech-teal/30">
-                  {category.skills.map((skill, index) => (
-                    <div key={index} className="group flex items-center">
-                      <div
-                        className={`w-1.5 h-1.5 rounded-full bg-${category.color} opacity-70 mr-2 group-hover:opacity-100`}
-                      ></div>
+                  {category.skills.map((skill) => (
+                    <div key={skill} className="group flex items-center">
+                      <div className={`w-1.5 h-1.5 rounded-full ${category.dotClass} opacity-70 mr-2 group-hover:opacity-100`}></div>
                       <span className="text-tech-light/80 text-sm group-hover:text-tech-light transition-colors duration-200">
                         {skill}
                       </span>
@@ -118,9 +114,9 @@ const Skills = () => {
               Additional Tools
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {additionalSkills.map((skill, index) => (
+              {additionalSkills.map((skill) => (
                 <span
-                  key={index}
+                  key={skill}
                   className="px-3 py-1.5 bg-tech-dark border border-tech-teal/50 text-tech-light/80 text-sm rounded hover:border-tech-cyan hover:text-tech-cyan transition-colors duration-300"
                 >
                   {skill}

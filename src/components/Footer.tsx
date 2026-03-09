@@ -1,78 +1,67 @@
+const NAV_LINKS = [
+  { href: "#home", label: "Home" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-2xl font-bold text-blue-400">Ervin Fernandez</h2>
-            <p className="mt-2 text-gray-400">Software Engineer</p>
+    <footer className="bg-tech-darker border-t border-tech-cyan/20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-cyber-grid opacity-5 z-0" />
+
+      <div className="container mx-auto px-4 py-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          {/* Brand */}
+          <div>
+            <div className="font-display text-2xl font-bold mb-3">
+              <span className="text-tech-teal">Ervin</span>
+              <span className="text-tech-cyan">Fernandez</span>
+            </div>
+            <p className="text-tech-light/50 font-tech text-sm">Software Engineer</p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 items-center">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-tech text-tech-teal text-xs tracking-widest uppercase mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              {NAV_LINKS.map(({ href, label }) => (
+                <li key={href}>
                   <a
-                    href="#home"
-                    className="text-gray-400 hover:text-white transition duration-300"
+                    href={href}
+                    className="text-tech-light/50 hover:text-tech-cyan font-tech text-sm transition-colors duration-300"
                   >
-                    Home
+                    &gt; {label}
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#about"
-                    className="text-gray-400 hover:text-white transition duration-300"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#skills"
-                    className="text-gray-400 hover:text-white transition duration-300"
-                  >
-                    Skills
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#projects"
-                    className="text-gray-400 hover:text-white transition duration-300"
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition duration-300"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Contact Info</h3>
-              <ul className="space-y-2">
-                <li className="text-gray-400">Binmaley Pangasinan, Philippines</li>
-                <li className="text-gray-400">ervsfernandez21@gmail.com</li>
-                <li className="text-gray-400">+639457058871</li>
-              </ul>
-            </div>
+          {/* Contact Info */}
+          <div>
+            <h3 className="font-tech text-tech-teal text-xs tracking-widest uppercase mb-4">
+              Contact
+            </h3>
+            <ul className="space-y-2 font-tech text-sm text-tech-light/50">
+              <li>Binmaley Pangasinan, Philippines</li>
+              <li>ervsfernandez21@gmail.com</li>
+              <li>+639457058871</li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Ervin Fernandez. All rights reserved.</p>
-          <p className="mt-2 text-sm">
-            Designed and built with Artificial Intelligence{" "}
-            using React and TailwindCSS
+        <div className="border-t border-tech-cyan/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
+          <p className="text-tech-light/30 font-tech text-xs">
+            &copy; {currentYear} Ervin Fernandez. All rights reserved.
+          </p>
+          <p className="text-tech-light/30 font-tech text-xs">
+            Designed and built with Artificial Intelligence using React and TailwindCSS
           </p>
         </div>
       </div>

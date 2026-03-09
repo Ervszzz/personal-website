@@ -33,7 +33,7 @@ const faqs: FAQ[] = [
       "Tell me about your experience",
     ],
     answer:
-      "I have experience as a Software Engineer developing applications with modern technologies. His journey spans Python development, data engineering, and DevOps automation. I've built everything from automated ETL pipelines to AI-powered applications and responsive web interfaces.",
+      "I'm currently a Site Reliability Engineer II at Zendesk, focused on incident management, system reliability, and deployment safety. Previously, I worked as a Python Developer at Kodexa, building AI/ML solutions and data engineering pipelines. My journey spans SRE, Python development, data engineering, and DevOps automation.",
   },
   {
     questions: [
