@@ -1,9 +1,11 @@
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
 interface SkillCategory {
   id: string;
   title: string;
   textClass: string;
   dotClass: string;
-  skills: string[];
+  skills: { name: string; icon: string }[];
 }
 
 const skillCategories: SkillCategory[] = [
@@ -12,35 +14,61 @@ const skillCategories: SkillCategory[] = [
     title: "DevOps & Automation",
     textClass: "text-tech-purple",
     dotClass: "bg-tech-purple",
-    skills: ["DataDog", "Betterstack", "ArgoCD", "GitHub Actions", "RPA", "AWS"],
+    skills: [
+      { name: "DataDog", icon: "devicon-datadog-plain" },
+      { name: "Betterstack", icon: "" },
+      { name: "ArgoCD", icon: "devicon-argocd-plain" },
+      { name: "GitHub Actions", icon: "devicon-githubactions-plain" },
+      { name: "RPA", icon: "" },
+      { name: "AWS", icon: "devicon-amazonwebservices-plain" },
+    ],
   },
   {
     id: "frontend",
     title: "Frontend",
     textClass: "text-tech-cyan",
     dotClass: "bg-tech-cyan",
-    skills: ["React JS", "HTML", "CSS", "JavaScript", "TailWind CSS"],
+    skills: [
+      { name: "React JS", icon: "devicon-react-original" },
+      { name: "HTML", icon: "devicon-html5-plain" },
+      { name: "CSS", icon: "devicon-css3-plain" },
+      { name: "JavaScript", icon: "devicon-javascript-plain" },
+      { name: "TailwindCSS", icon: "devicon-tailwindcss-plain" },
+    ],
   },
   {
     id: "backend",
     title: "Backend",
     textClass: "text-tech-teal",
     dotClass: "bg-tech-teal",
-    skills: ["Python", "PHP", "Laravel", "C#", "Mocha JS"],
+    skills: [
+      { name: "Python", icon: "devicon-python-plain" },
+      { name: "PHP", icon: "devicon-php-plain" },
+      { name: "Laravel", icon: "devicon-laravel-plain" },
+      { name: "C#", icon: "devicon-csharp-plain" },
+      { name: "Mocha JS", icon: "devicon-mocha-plain" },
+    ],
   },
   {
     id: "tools",
     title: "Tools & Workflow",
     textClass: "text-tech-pink",
     dotClass: "bg-tech-pink",
-    skills: ["GitHub", "Linear", "Notion", "Cronicle"],
+    skills: [
+      { name: "GitHub", icon: "devicon-github-original" },
+      { name: "Linear", icon: "" },
+      { name: "Notion", icon: "devicon-notion-plain" },
+      { name: "Kubernetes", icon: "devicon-kubernetes-plain" },
+    ],
   },
   {
     id: "database",
     title: "Database",
     textClass: "text-tech-cyan",
     dotClass: "bg-tech-cyan",
-    skills: ["PostgreSQL"],
+    skills: [
+      { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+    ],
   },
 ];
 
@@ -57,6 +85,8 @@ const additionalSkills = [
 ];
 
 const Skills = () => {
+  const ref = useScrollReveal<HTMLDivElement>();
+
   return (
     <section id="skills" className="py-20 bg-tech-dark relative overflow-hidden">
       {/* Tech background elements */}
@@ -65,7 +95,7 @@ const Skills = () => {
       <div className="absolute bottom-1/3 left-1/3 w-48 h-48 rounded-full bg-tech-cyan/5 blur-2xl z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-reveal" ref={ref}>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-tech-cyan via-tech-teal to-tech-purple mb-4">
             Technical Skills
           </h2>
@@ -93,11 +123,15 @@ const Skills = () => {
                 </h3>
 
                 <div className="space-y-2 pl-4 border-l border-tech-teal/30">
-                  {category.skills.map((skill) => (
-                    <div key={skill} className="group flex items-center">
-                      <div className={`w-1.5 h-1.5 rounded-full ${category.dotClass} opacity-70 mr-2 group-hover:opacity-100`}></div>
+                  {category.skills.map(({ name, icon }) => (
+                    <div key={name} className="group flex items-center gap-2">
+                      {icon ? (
+                        <i className={`${icon} text-sm ${category.textClass} opacity-70 group-hover:opacity-100 transition-opacity`} />
+                      ) : (
+                        <div className={`w-1.5 h-1.5 rounded-full ${category.dotClass} opacity-70 group-hover:opacity-100`} />
+                      )}
                       <span className="text-tech-light/80 text-sm group-hover:text-tech-light transition-colors duration-200">
-                        {skill}
+                        {name}
                       </span>
                     </div>
                   ))}

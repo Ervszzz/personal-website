@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
 import f1HubImage from "../assets/images/projects/f1_hub.png";
@@ -61,6 +62,7 @@ const filters = Object.keys(TAG_DISPLAY);
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const headingRef = useScrollReveal<HTMLDivElement>();
 
   const filteredProjects =
     activeFilter === "all"
@@ -74,7 +76,7 @@ const Projects = () => {
       <div className="absolute top-1/3 right-1/3 w-40 h-40 rounded-full bg-tech-pink/5 blur-xl z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-reveal" ref={headingRef}>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal mb-4">
             My Projects
           </h2>

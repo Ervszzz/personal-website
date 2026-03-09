@@ -52,7 +52,7 @@ const faqs: FAQ[] = [
       "Portfolio projects",
     ],
     answer:
-      "He has worked on various projects including web applications, data pipelines, and automation tools. You can see details of his projects in the Projects section of this portfolio.",
+      "I've worked on various projects including web applications, data pipelines, and automation tools. You can see details in the Projects section of this portfolio.",
   },
   {
     questions: [
@@ -61,7 +61,7 @@ const faqs: FAQ[] = [
       "Job availability",
     ],
     answer:
-      "Yes, he is currently available for full-time positions. I'm particularly interested in roles involving software engineering, data engineering, or DevOps.",
+      "I'm currently working full-time as an SRE II at Zendesk. I'm always open to interesting opportunities — feel free to reach out via the contact form.",
   },
   {
     questions: [
@@ -70,7 +70,7 @@ const faqs: FAQ[] = [
       "Educational background",
     ],
     answer:
-      "He has a degree in Computer Science with a focus on software development and data engineering.",
+      "I have a degree in Computer Science with a focus on software development and data engineering.",
   },
   {
     questions: ["hello", "hi", "hey", "greetings", "what's up"],
