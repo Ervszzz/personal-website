@@ -1,4 +1,4 @@
-import profileImage from "../assets/images/profile/ervszz.png";
+import profileImage from "../assets/images/profile/ervszz_optimized.png";
 import ParticlesBackground from "./ParticlesBackground";
 import ResumeDownload from "./ResumeDownload";
 
@@ -43,10 +43,10 @@ const Hero = () => {
             <div className="h-1 w-20 bg-tech-cyan mb-6 md:mx-0 mx-auto"></div>
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
-              A {" "}
-              <span className="text-tech-cyan">SOFTWARE ENGINEER</span> crafting
-              elegant, user-friendly digital solutions with modern technologies,
-              AI, Automation, and DevOps.
+              A passionate{" "}
+              <span className="text-tech-cyan">SITE RELIABILITY ENGINEER</span>{" "}
+              keeping systems reliable, deployments safe, and incidents short —
+              with a background in Python, AI, and full-stack development.
             </p>
 
             <div className="mb-6 max-w-lg mx-auto md:mx-0">
@@ -145,28 +145,27 @@ const Hero = () => {
 
             <div className="md:w-2/3 md:pl-12">
               <p className="text-tech-light/80 mb-6 leading-relaxed">
-                I develop <span className="text-tech-cyan">innovative</span>,{" "}
-                <span className="text-tech-teal">data-driven</span> solutions
-                that combine Python expertise with{" "}
-                <span className="text-tech-purple">AI/ML capabilities</span> and
-                modern web technologies.
+                Currently working as a{" "}
+                <span className="text-tech-cyan">Site Reliability Engineer II at Zendesk</span>,
+                focused on{" "}
+                <span className="text-tech-teal">incident management</span>,
+                system reliability, and safe deployment practices across
+                cloud infrastructure.
               </p>
 
               <p className="text-tech-light/80 mb-6 leading-relaxed">
-                My journey in software engineering spans Python development,
-                data engineering, and DevOps automation. I've built everything
-                from automated ETL pipelines to AI-powered applications and
-                responsive web interfaces. I'm passionate about optimizing
-                systems, automating processes, and creating technology that
-                solves real-world problems.
+                My background spans{" "}
+                <span className="text-tech-purple">SRE, Python development, data engineering,
+                and DevOps automation</span>. I've built automated ETL pipelines,
+                AI-powered applications, and responsive web interfaces — and now
+                I keep production systems running at scale.
               </p>
 
               <p className="text-tech-light/80 mb-6 leading-relaxed">
-                I'm also a{" "}
-                <span className="text-tech-purple">DevOps enthusiast</span>,
-                currently exploring the DevOps methodology and best practices to
-                enhance system reliability, streamline deployment processes, and
-                improve collaboration between development and operations teams.
+                I'm passionate about{" "}
+                <span className="text-tech-cyan">optimizing systems</span>,
+                improving observability, and building processes that make
+                engineering teams faster and more confident in their deployments.
               </p>
             </div>
           </div>

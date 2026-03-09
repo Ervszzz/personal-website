@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface Experience {
   id: number;
@@ -118,6 +119,7 @@ const experiences: Experience[] = [
 
 const WorkExperience = () => {
   const [expandedDetails, setExpandedDetails] = useState<number[]>([]);
+  const headingRef = useScrollReveal<HTMLDivElement>();
 
   const toggleDetails = (id: number) => {
     setExpandedDetails((prev) =>
@@ -127,7 +129,7 @@ const WorkExperience = () => {
 
   return (
     <div className="container mx-auto py-20 px-4 md:px-8">
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 scroll-reveal" ref={headingRef}>
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-tech-cyan to-tech-teal">
           Work Experience
         </h2>
