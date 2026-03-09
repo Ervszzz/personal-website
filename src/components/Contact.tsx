@@ -1,4 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+
+const EMAIL = "ervsfernandez21@gmail.com";
 import emailjs from "@emailjs/browser";
 
 interface FormData {
@@ -23,6 +25,13 @@ const Contact = () => {
   const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<SubmitMessage | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(EMAIL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -112,7 +121,20 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-tech-teal">Email</h4>
-                    <p className="text-tech-light/70">ervsfernandez21@gmail.com</p>
+                    <button
+                      onClick={copyEmail}
+                      className="flex items-center gap-2 text-tech-light/70 hover:text-tech-cyan transition-colors duration-200 group"
+                      title="Click to copy"
+                    >
+                      <span>{EMAIL}</span>
+                      <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {copied
+                          ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        }
+                      </svg>
+                      {copied && <span className="text-tech-cyan text-xs font-tech">Copied!</span>}
+                    </button>
                   </div>
                 </div>
 
