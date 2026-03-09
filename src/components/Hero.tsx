@@ -1,16 +1,54 @@
+import { useState, useEffect } from "react";
 import profileImage from "../assets/images/profile/ervszz_optimized.png";
-import ParticlesBackground from "./ParticlesBackground";
 import ResumeDownload from "./ResumeDownload";
 
+const ROLES = [
+  "Site Reliability Engineer",
+  "Python Developer",
+  "DevOps Engineer",
+  "AI & Data Engineer",
+];
+
+const useTypewriter = (words: string[], typingSpeed = 80, pauseDuration = 1800) => {
+  const [displayed, setDisplayed] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[wordIndex];
+
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        setDisplayed(current.slice(0, charIndex + 1));
+        if (charIndex + 1 === current.length) {
+          setTimeout(() => setDeleting(true), pauseDuration);
+        } else {
+          setCharIndex((c) => c + 1);
+        }
+      } else {
+        setDisplayed(current.slice(0, charIndex - 1));
+        if (charIndex - 1 === 0) {
+          setDeleting(false);
+          setCharIndex(0);
+          setWordIndex((i) => (i + 1) % words.length);
+        } else {
+          setCharIndex((c) => c - 1);
+        }
+      }
+    }, deleting ? typingSpeed / 2 : typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, wordIndex, words, typingSpeed, pauseDuration]);
+
+  return displayed;
+};
+
 const Hero = () => {
+  const typedRole = useTypewriter(ROLES);
+
   return (
     <section id="home" className="py-20 relative overflow-hidden">
-      {/* Particles background for Hero section */}
-      <ParticlesBackground
-        containerId="hero-particles"
-        className="absolute inset-0 z-0"
-      />
-
       {/* Animated tech background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-20 h-20 border border-tech-cyan opacity-20 animate-pulse-slow"></div>
@@ -29,18 +67,25 @@ const Hero = () => {
         {/* Introduction Section */}
         <div className="flex flex-col md:flex-row items-center mb-16">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-            <div className="mb-2 inline-block">
-              <span className="font-tech text-sm text-tech-cyan tracking-widest">
-                Site Reliability Engineer | AI & Data Engineer | DevOps
-              </span>
+            {/* Zendesk badge */}
+            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-tech-cyan/30 bg-tech-cyan/5 font-tech text-xs text-tech-cyan">
+              <span className="w-2 h-2 rounded-full bg-tech-cyan animate-pulse"></span>
+              Currently @ Zendesk
             </div>
+
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 text-tech-light">
               <span className="block text-tech-teal">Hi, I'm</span>
               <span className="text-transparent bg-clip-text bg-tech-gradient">
                 Ervin Fernandez
               </span>
             </h1>
-            <div className="h-1 w-20 bg-tech-cyan mb-6 md:mx-0 mx-auto"></div>
+
+            {/* Typewriter */}
+            <div className="h-1 w-20 bg-tech-cyan mb-4 md:mx-0 mx-auto"></div>
+            <div className="font-tech text-tech-cyan text-lg md:text-xl mb-4 h-8 flex items-center justify-center md:justify-start">
+              <span>{typedRole}</span>
+              <span className="ml-0.5 w-0.5 h-5 bg-tech-cyan animate-pulse inline-block"></span>
+            </div>
 
             <p className="text-lg mb-4 max-w-lg mx-auto md:mx-0 text-tech-light/80">
               A passionate{" "}
@@ -54,9 +99,7 @@ const Hero = () => {
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-cyan mr-2"></span>
                   <span className="text-tech-light/80">
-                    <span className="text-tech-teal font-medium">
-                      Frontend:
-                    </span>{" "}
+                    <span className="text-tech-teal font-medium">Frontend:</span>{" "}
                     React JS, HTML, CSS, JavaScript, TailWind CSS
                   </span>
                 </li>
@@ -70,18 +113,14 @@ const Hero = () => {
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-purple mr-2"></span>
                   <span className="text-tech-light/80">
-                    <span className="text-tech-purple font-medium">
-                      DevOps & Automation:
-                    </span>{" "}
+                    <span className="text-tech-purple font-medium">DevOps & Automation:</span>{" "}
                     DataDog, Betterstack, ArgoCD, GitHub Actions, RPA
                   </span>
                 </li>
                 <li className="flex items-center">
                   <span className="inline-block w-2 h-2 bg-tech-pink mr-2"></span>
                   <span className="text-tech-light/80">
-                    <span className="text-tech-pink font-medium">
-                      Tools & Workflow:
-                    </span>{" "}
+                    <span className="text-tech-pink font-medium">Tools & Workflow:</span>{" "}
                     GitHub, Linear, Notion, Cronicle
                   </span>
                 </li>
@@ -104,9 +143,9 @@ const Hero = () => {
               <ResumeDownload />
             </div>
           </div>
+
           <div className="md:w-1/2 flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-tech-gray/30 flex items-center justify-center border border-tech-cyan relative group overflow-hidden">
-              {/* Profile image */}
               <img
                 src={profileImage}
                 alt="Ervin Joshua Fernandez"
@@ -117,7 +156,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* About Section - Merged from About component */}
+        {/* About Section */}
         <div className="mt-16 pt-8 border-t border-tech-border/30">
           <div className="flex flex-col md:flex-row items-start">
             <div className="md:w-1/3 mb-8 md:mb-0">
@@ -127,17 +166,11 @@ const Hero = () => {
 
               <div className="grid grid-cols-1 gap-4 mb-6">
                 <div>
-                  <h4 className="font-tech font-semibold text-tech-teal">
-                    Location:
-                  </h4>
-                  <p className="text-tech-light/80">
-                    Binmaley Pangasinan, Philippines
-                  </p>
+                  <h4 className="font-tech font-semibold text-tech-teal">Location:</h4>
+                  <p className="text-tech-light/80">Binmaley Pangasinan, Philippines</p>
                 </div>
                 <div>
-                  <h4 className="font-tech font-semibold text-tech-teal">
-                    Availability:
-                  </h4>
+                  <h4 className="font-tech font-semibold text-tech-teal">Availability:</h4>
                   <p className="text-tech-light/80">Full-time</p>
                 </div>
               </div>
