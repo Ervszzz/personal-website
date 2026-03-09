@@ -5,6 +5,7 @@ import WorkExperience from "./components/WorkExperience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
+import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
@@ -89,6 +90,15 @@ function App() {
           </section>
 
           <SectionDivider bg="bg-tech-dark" />
+
+          <section id="testimonials" className="relative">
+            <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
+            <div className="relative z-10">
+              <Testimonials />
+            </div>
+          </section>
+
+          <SectionDivider bg="bg-tech-gray-dark/30" />
 
           <section id="contact" className="relative">
             <div className="absolute inset-0 bg-tech-gray-dark/30 z-0"></div>
