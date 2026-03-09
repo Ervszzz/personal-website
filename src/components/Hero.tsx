@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import profileImage from "../assets/images/profile/ervszz_optimized.png";
 import ResumeDownload from "./ResumeDownload";
 import ParticlesBackground from "./ParticlesBackground";
+import GitHubStats from "./GitHubStats";
 
 const ROLES = [
   "Site Reliability Engineer",
@@ -212,18 +213,7 @@ const Hero = () => {
           <h3 className="font-tech text-tech-teal text-xs tracking-widest uppercase mb-6 text-center">
             GitHub Activity
           </h3>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=Ervszzz&show_icons=true&bg_color=0B0C10&border_color=66FCF1&title_color=66FCF1&text_color=C5C6C7&icon_color=45A29E&hide_border=false&count_private=true"
-              alt="Ervin's GitHub Stats"
-              className="rounded-lg max-w-full"
-            />
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ervszzz&layout=compact&bg_color=0B0C10&border_color=66FCF1&title_color=66FCF1&text_color=C5C6C7&hide_border=false"
-              alt="Ervin's Top Languages"
-              className="rounded-lg max-w-full"
-            />
-          </div>
+          <GitHubStats />
         </div>
       </div>
     </section>
