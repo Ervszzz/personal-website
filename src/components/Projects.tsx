@@ -18,12 +18,12 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Formula 1 HUB",
+    title: "F1 Pulse",
     description:
       "Real-time Formula 1 data interface. Access race telemetry, driver statistics, and circuit analytics.",
     image: f1HubImage,
     tags: ["react", "javascript", "tailwindcss", "artificial intelligence"],
-    demoLink: "https://formula1-hub.vercel.app",
+    demoLink: "https://f1pulseapp.vercel.app/",
     codeLink: "https://github.com/Ervszzz/formula1-hub",
     featured: true,
   },
