@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
-import f1HubImage from "../assets/images/projects/f1_hub.png";
+import f1HubImage from "../assets/images/projects/f1pulse.png";
+import codeHunterImage from "../assets/images/projects/code_hunter.png";
 
 interface Project {
   id: number;
@@ -29,6 +30,16 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    title: "Code Hunter",
+    description:
+      "A gamified GitHub activity tracker where every commit earns XP and every PR levels you up. Rise from Rank E to National Level — purely through your GitHub activity. Connect your GitHub account, earn XP automatically, and compete on the global leaderboard.",
+    image: codeHunterImage,
+    tags: ["react", "typescript", "tailwindcss"],
+    demoLink: "https://codehunter-gamma.vercel.app/",
+    codeLink: "https://github.com/Ervszzz/codehunter",
+  },
+  {
+    id: 3,
     title: "Portfolio Website",
     description:
       "A modern tech-themed portfolio website built with React, TypeScript, TailwindCSS, and Artificial Intelligence. Features include responsive design, smooth animations, interactive navigation, and a tech-inspired UI with custom styling and components.",
@@ -39,7 +50,7 @@ const projects: Project[] = [
     featured: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "Snake Game",
     description: "The classic snake game built with Python and Turtle Graphics.",
     image: snakeGameImage,
