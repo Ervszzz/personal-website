@@ -15,9 +15,9 @@ interface SubmitMessage {
   isError: boolean;
 }
 
-const EMAILJS_SERVICE_ID = "service_2fv7xym";
-const EMAILJS_TEMPLATE_ID = "template_2xkxcyv";
-const EMAILJS_PUBLIC_KEY = "Lfo0ZJ-TORHQmhSgw";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const EMPTY_FORM: FormData = { name: "", email: "", subject: "", message: "" };
 
