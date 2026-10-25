@@ -1,100 +1,72 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
-interface ParticlesBackgroundProps {
-  containerId?: string;
-  className?: string;
-}
+const usePrefersReducedMotion = () => {
+  const [reduced, setReduced] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 
-const ParticlesBackground = ({
-  containerId = "tsparticles",
-  className = "absolute inset-0 z-0",
-}: ParticlesBackgroundProps) => {
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReduced(query.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return reduced;
+};
+
+// A quiet, page-wide network of nodes behind the content
+const ParticlesBackground = () => {
+  const reducedMotion = usePrefersReducedMotion();
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      console.log("Particles container loaded", container);
-    },
-    []
-  );
+  if (reducedMotion) return null;
 
   return (
     <Particles
-      id={containerId}
+      id="tsparticles"
       init={particlesInit}
-      loaded={particlesLoaded}
-      className={className}
       options={{
-        background: {
-          color: {
-            value: "transparent",
-          },
-        },
+        fullScreen: { enable: true, zIndex: 0 },
+        background: { color: { value: "transparent" } },
         fpsLimit: 60,
         interactivity: {
           events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-            onHover: {
-              enable: true,
-              mode: "repulse",
-            },
+            onHover: { enable: true, mode: "grab" },
             resize: true,
           },
           modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 100,
-              duration: 0.4,
-            },
+            grab: { distance: 140, links: { opacity: 0.25 } },
           },
         },
         particles: {
-          color: {
-            value: ["#8A2BE2", "#00FFFF", "#00CED1", "#FF1493"],
-          },
+          color: { value: ["#66FCF1", "#45A29E"] },
           links: {
-            color: "#ffffff",
+            color: "#45A29E",
             distance: 150,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.12,
             width: 1,
           },
           move: {
-            direction: "none",
             enable: true,
-            outModes: {
-              default: "bounce",
-            },
+            outModes: { default: "bounce" },
             random: true,
-            speed: 1,
-            straight: false,
+            speed: 0.4,
           },
           number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 50,
+            density: { enable: true, area: 1000 },
+            value: 36,
           },
-          opacity: {
-            value: 0.5,
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 1, max: 3 },
-          },
+          opacity: { value: 0.35 },
+          shape: { type: "circle" },
+          size: { value: { min: 1, max: 2 } },
         },
         detectRetina: true,
       }}

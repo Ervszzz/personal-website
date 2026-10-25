@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 
 const EMAIL = "ervsfernandez21@gmail.com";
 import emailjs from "@emailjs/browser";
+import SectionHeading from "./SectionHeading";
 
 interface FormData {
   name: string;
@@ -62,107 +63,95 @@ const Contact = () => {
       .then(() => {
         setIsSubmitting(false);
         setFormData(EMPTY_FORM);
-        showMessage("Your message has been sent successfully!", false);
+        showMessage("Message sent. I'll reply by email.", false);
       })
       .catch((error) => {
         setIsSubmitting(false);
         showMessage(
-          `Failed to send message: ${error.text || "Please try again later."}`,
+          `Message not sent: ${error.text || "the email service didn't respond"}. Try again, or email me directly.`,
           true
         );
       });
   };
 
   return (
-    <div className="py-20 px-4 md:px-8">
-      <div className="container mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-tech-cyan to-tech-teal">
-            Get In Touch
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-tech-purple to-tech-cyan mx-auto"></div>
-          <p className="mt-6 text-tech-light/80 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss potential opportunities?
-            I'd love to hear from you.
-          </p>
-        </div>
+    <section id="contact" className="py-20 md:py-28 border-t border-tech-border/60">
+      <div className="container">
+        <SectionHeading
+          title="Get in touch"
+          intro="Hiring for an SRE or platform role, or want to talk reliability? Send a message and I'll reply by email."
+        />
 
         {/* Contact Grid */}
-        <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           {/* Contact Info */}
           <div className="md:col-span-2">
-            <div className="border border-tech-border bg-tech-card rounded-lg p-6 h-full backdrop-blur-sm relative overflow-hidden group">
-              {/* Tech corner accents */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tech-cyan opacity-50"></div>
-              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tech-cyan opacity-50"></div>
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tech-cyan opacity-50"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tech-cyan opacity-50"></div>
+            <div className="border border-tech-border bg-tech-card p-6 h-full">
 
-              <h3 className="text-xl font-tech font-semibold text-tech-cyan mb-6">
-                Contact Info
+              <h3 className="font-display text-xl font-semibold text-tech-ink mb-6">
+                Contact details
               </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="bg-tech-card border border-tech-border p-3 rounded-lg mr-4 text-tech-cyan">
+                  <div className="border border-tech-border p-3 mr-4 text-tech-cyan">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-tech-teal">Phone</h4>
-                    <p className="text-tech-light/70">+639457058871</p>
+                    <h4 className="text-sm text-tech-text-secondary">Phone</h4>
+                    <p className="text-tech-ink">+639457058871</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-tech-card border border-tech-border p-3 rounded-lg mr-4 text-tech-cyan">
+                  <div className="border border-tech-border p-3 mr-4 text-tech-cyan">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-tech-teal">Email</h4>
+                    <h4 className="text-sm text-tech-text-secondary">Email</h4>
                     <button
                       onClick={copyEmail}
-                      className="flex items-center gap-2 text-tech-light/70 hover:text-tech-cyan transition-colors duration-200 group"
-                      title="Click to copy"
+                      className="flex items-center gap-2 text-tech-ink hover:text-tech-cyan transition-colors duration-200 group"
+                      title="Copy email address"
                     >
                       <span>{EMAIL}</span>
-                      <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {copied
                           ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         }
                       </svg>
-                      {copied && <span className="text-tech-cyan text-xs font-tech">Copied!</span>}
+                      {copied && <span className="text-tech-cyan text-xs">Copied</span>}
                     </button>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-tech-card border border-tech-border p-3 rounded-lg mr-4 text-tech-cyan">
+                  <div className="border border-tech-border p-3 mr-4 text-tech-cyan">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-medium text-tech-teal">Location</h4>
-                    <p className="text-tech-light/70">Binmaley Pangasinan, Philippines</p>
+                    <h4 className="text-sm text-tech-text-secondary">Location</h4>
+                    <p className="text-tech-ink">Binmaley, Pangasinan, Philippines</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-tech-border/30">
-                <h4 className="font-medium text-tech-teal mb-4">Connect</h4>
+                <h4 className="text-sm text-tech-text-secondary mb-4">Elsewhere</h4>
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/Ervszzz/Ervszzz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-tech-card border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 rounded-lg transition duration-300"
+                    className="border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 transition-colors duration-200"
                     aria-label="GitHub"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -173,7 +162,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/ervin-fernandez/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-tech-card border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 rounded-lg transition duration-300"
+                    className="border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 transition-colors duration-200"
                     aria-label="LinkedIn"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -189,16 +178,11 @@ const Contact = () => {
           <div className="md:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="border border-tech-border bg-tech-card rounded-lg p-6 backdrop-blur-sm relative overflow-hidden"
+              className="border border-tech-border bg-tech-card p-6 relative"
             >
-              {/* Tech corner accents */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tech-purple opacity-50"></div>
-              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tech-purple opacity-50"></div>
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tech-purple opacity-50"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tech-purple opacity-50"></div>
 
-              <h3 className="text-xl font-tech font-semibold text-tech-purple mb-6">
-                Send Message
+              <h3 className="font-display text-xl font-semibold text-tech-ink mb-6">
+                Send a message
               </h3>
 
               {/* Honeypot field — hidden from real users, bots fill it */}
@@ -213,7 +197,8 @@ const Contact = () => {
 
               {submitMessage && (
                 <div
-                  className={`p-4 mb-6 rounded-lg border ${
+                  role="status"
+                  className={`p-4 mb-6 border ${
                     submitMessage.isError
                       ? "border-red-500/50 bg-red-500/10 text-red-400"
                       : "border-green-500/50 bg-green-500/10 text-green-400"
@@ -234,7 +219,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-tech-teal text-sm font-medium mb-2">Name</label>
+                  <label htmlFor="name" className="block text-tech-ink text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -242,12 +227,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-tech-dark border border-tech-border rounded-lg px-4 py-3 text-tech-light focus:outline-none focus:border-tech-cyan transition duration-300"
+                    className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-tech-teal text-sm font-medium mb-2">Email</label>
+                  <label htmlFor="email" className="block text-tech-ink text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -255,14 +240,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-tech-dark border border-tech-border rounded-lg px-4 py-3 text-tech-light focus:outline-none focus:border-tech-cyan transition duration-300"
+                    className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-tech-teal text-sm font-medium mb-2">Subject</label>
+                <label htmlFor="subject" className="block text-tech-ink text-sm font-medium mb-2">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -270,13 +255,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-tech-dark border border-tech-border rounded-lg px-4 py-3 text-tech-light focus:outline-none focus:border-tech-cyan transition duration-300"
+                  className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
                   placeholder="What's this about?"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-tech-teal text-sm font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-tech-ink text-sm font-medium mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -284,7 +269,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-tech-dark border border-tech-border rounded-lg px-4 py-3 text-tech-light focus:outline-none focus:border-tech-cyan transition duration-300 resize-none"
+                  className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300 resize-none"
                   placeholder="Your message here..."
                 />
               </div>
@@ -292,12 +277,12 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-tech-dark border border-tech-cyan hover:bg-tech-cyan/10 text-tech-cyan font-bold py-3 px-6 rounded-lg transition duration-300 flex justify-center items-center"
+                className="w-full bg-tech-cyan hover:bg-tech-teal disabled:opacity-60 text-tech-dark font-semibold py-3 px-6 transition-colors duration-200 flex justify-center items-center"
               >
                 {isSubmitting ? (
                   <>
                     <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-tech-cyan"
+                      className="animate-spin -ml-1 mr-3 h-5 w-5"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -305,17 +290,17 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Processing...
+                    Sending...
                   </>
                 ) : (
-                  "Send Message"
+                  "Send message"
                 )}
               </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

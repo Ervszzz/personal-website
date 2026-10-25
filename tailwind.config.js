@@ -22,10 +22,14 @@ export default {
         "tech-text": "#C5C6C7",
         "tech-text-secondary": "#8892A4",
         "tech-tag": "#141E2D",
+        // Readable foreground and the alert/on-call accent (used sparingly)
+        "tech-ink": "#E6EAF0",
+        "tech-amber": "#FFB547",
       },
       fontFamily: {
-        tech: ["Space Mono", "JetBrains Mono", "monospace"],
-        display: ["Orbitron", "sans-serif"],
+        tech: ["IBM Plex Sans", "system-ui", "sans-serif"],
+        display: ["Chakra Petch", "IBM Plex Sans", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
       },
       boxShadow: {
         neon: "0 0 5px theme(colors.tech-cyan), 0 0 20px theme(colors.tech-cyan)",

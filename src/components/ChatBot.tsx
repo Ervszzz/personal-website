@@ -182,7 +182,10 @@ const ChatBot = () => {
     <div className="fixed bottom-5 right-5 z-50">
       {/* Chat button */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close chat" : "Ask a question about Ervin"}
+        aria-expanded={isOpen}
         className="bg-tech-cyan hover:bg-tech-teal text-tech-dark p-3 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
       >
         {isOpen ? (
