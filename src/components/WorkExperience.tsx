@@ -49,7 +49,7 @@ const experiences: Experience[] = [
           <h4 className="text-ink font-medium mb-2">AI/ML</h4>
           <ul className={listClass}>
             <li>Labelled data used to train and evaluate AI/ML models.</li>
-            <li>Designed and refined prompts for large language models.</li>
+            <li>Wrote and refined prompts for large language models (prompt engineering) to improve output quality.</li>
           </ul>
         </div>
         <div>
