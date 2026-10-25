@@ -103,3 +103,135 @@ section {
     transition: none;
   }
 }
+
+/* Blog post body (rendered from Markdown) */
+.post-body {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgb(var(--c-ink) / 0.9);
+}
+.post-body > * + * {
+  margin-top: 1.25em;
+}
+.post-body h2 {
+  margin-top: 2.25em;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: rgb(var(--c-ink));
+}
+.post-body h3 {
+  margin-top: 1.75em;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(var(--c-ink));
+}
+.post-body h2 + *,
+.post-body h3 + * {
+  margin-top: 0.75em;
+}
+.post-body a {
+  color: rgb(var(--c-accent));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.post-body strong {
+  font-weight: 600;
+  color: rgb(var(--c-ink));
+}
+.post-body ul,
+.post-body ol {
+  padding-left: 1.4em;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body li + li {
+  margin-top: 0.5em;
+}
+.post-body li::marker {
+  color: rgb(var(--c-accent));
+}
+.post-body code {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.8em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: rgb(var(--c-surface));
+  border: 1px solid rgb(var(--c-line));
+}
+.post-body pre {
+  overflow-x: auto;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background: rgb(var(--c-surface));
+  border: 1px solid rgb(var(--c-line));
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.post-body pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.post-body blockquote {
+  padding-left: 1.1em;
+  border-left: 3px solid rgb(var(--c-accent));
+  color: rgb(var(--c-muted));
+}
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.post-body th,
+.post-body td {
+  padding: 0.6em 0.75em 0.6em 0;
+  border-bottom: 1px solid rgb(var(--c-line));
+  text-align: left;
+  vertical-align: top;
+}
+.post-body th {
+  font-weight: 600;
+  color: rgb(var(--c-ink));
+}
+.post-body hr {
+  border: 0;
+  border-top: 1px solid rgb(var(--c-line));
+}
+.post-body figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.post-body figcaption {
+  margin-top: 0.75em;
+  font-size: 0.95rem;
+  color: rgb(var(--c-muted));
+}
+.post-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgb(var(--c-line));
+}
+.post-scroll {
+  overflow-x: auto;
+  border: 1px solid rgb(var(--c-line));
+  border-radius: 8px;
+  background: rgb(var(--c-surface));
+  padding: 1rem;
+}
+
+/* Inline SVG diagrams in posts: theme-aware via the color tokens */
+.dg-box { fill: rgb(var(--c-bg)); stroke: rgb(var(--c-line)); }
+.dg-box-accent { fill: rgb(var(--c-bg)); stroke: rgb(var(--c-accent)); }
+.dg-text { fill: rgb(var(--c-ink)); font-weight: 600; }
+.dg-muted { fill: rgb(var(--c-muted)); }
+.dg-path { stroke: rgb(var(--c-accent)); }
+.dg-check { stroke: rgb(var(--c-warn)); }
+.dg-check-fill { fill: rgb(var(--c-warn)); }
+.dg-check-text { fill: rgb(var(--c-accent-ink)); font-weight: 600; }
