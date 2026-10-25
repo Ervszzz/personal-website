@@ -5,19 +5,32 @@ import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
 import f1HubImage from "../assets/images/projects/f1pulse.png";
 import codeHunterImage from "../assets/images/projects/code_hunter.png";
+import homelabImage from "../assets/images/projects/homelab.svg";
 
 interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
+  imageAlt?: string;
   tags: string[];
   demoLink: string;
-  codeLink: string;
+  codeLink?: string;
   featured?: boolean;
 }
 
 const projects: Project[] = [
+  {
+    id: 5,
+    title: "Homelab",
+    description:
+      "A self-hosted Mac Mini running Docker-based monitoring and automation, built with AI-assisted development. It runs a Starlink monitoring stack with Grafana dashboards for home internet health, and ph-alerts, which sends Telegram notifications for PAGASA typhoon signals and weekly fuel price changes.",
+    image: homelabImage,
+    imageAlt: "Diagram of the homelab: a Mac Mini running Docker services for Starlink monitoring, Grafana, and ph-alerts, feeding a connection health dashboard and Telegram alerts",
+    tags: ["docker", "grafana", "telegram bot api", "macos"],
+    demoLink: "#",
+    featured: true,
+  },
   {
     id: 1,
     title: "F1 Pulse",
@@ -27,7 +40,6 @@ const projects: Project[] = [
     tags: ["react", "javascript", "tailwindcss", "artificial intelligence"],
     demoLink: "https://f1pulseapp.vercel.app/",
     codeLink: "https://github.com/Ervszzz/formula1-hub",
-    featured: true,
   },
   {
     id: 2,
@@ -71,7 +83,14 @@ const TAG_DISPLAY: Record<string, string> = {
 };
 
 // Labels for tags that aren't filters
-const TAG_LABELS: Record<string, string> = { ...TAG_DISPLAY, "artificial intelligence": "AI" };
+const TAG_LABELS: Record<string, string> = {
+  ...TAG_DISPLAY,
+  "artificial intelligence": "AI",
+  docker: "Docker",
+  grafana: "Grafana",
+  "telegram bot api": "Telegram Bot API",
+  macos: "macOS",
+};
 
 const filters = Object.keys(TAG_DISPLAY);
 
@@ -117,7 +136,7 @@ const Projects = () => {
               <div className={`overflow-hidden border-b border-line ${project.featured ? "lg:w-3/5 lg:border-b-0 lg:border-r" : ""}`}>
                 <img
                   src={project.image}
-                  alt={`Screenshot of ${project.title}`}
+                  alt={project.imageAlt ?? `Screenshot of ${project.title}`}
                   className={`w-full object-cover ${project.featured ? "h-56 md:h-72 lg:h-full" : "h-48"}`}
                 />
               </div>
@@ -145,9 +164,11 @@ const Projects = () => {
                       Open live demo
                     </a>
                   )}
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} text-sm px-4 py-2`}>
-                    View code
-                  </a>
+                  {project.codeLink && (
+                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} text-sm px-4 py-2`}>
+                      View code
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

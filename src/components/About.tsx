@@ -1,4 +1,4 @@
-import profileImage from "../assets/images/profile/ervszz_optimized.png";
+import profileImage from "../assets/images/profile/profile.webp";
 import SectionHeading from "./SectionHeading";
 import { container } from "./ui";
 
@@ -9,6 +9,8 @@ const About = () => {
         <img
           src={profileImage}
           alt="Ervin Fernandez"
+          width={640}
+          height={640}
           className="w-40 h-40 sm:w-56 sm:h-56 md:w-full md:h-auto md:max-w-xs md:aspect-square rounded-lg object-cover border border-line"
         />
 
