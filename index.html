@@ -24,17 +24,15 @@
     <meta name="twitter:title" content="Ervin Fernandez | Site Reliability Engineer & DevOps" />
     <meta name="twitter:description" content="Software Engineer II (SRE) at Zendesk. Experienced in incident management, Python, AI/ML, data engineering, and DevOps automation." />
     <meta name="twitter:image" content="https://ervszzz.github.io/personal-website/og-image.png" />
-    <!-- Theme: saved choice, else system preference. Runs before paint to avoid a flash. -->
+    <!-- Theme: light by default; dark only if the visitor chose it. Runs before paint to avoid a flash. -->
     <script>
       (function () {
         var saved = null;
         try { saved = localStorage.getItem("theme"); } catch (e) {}
-        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.classList.toggle("dark", saved === "dark");
       })();
     </script>
-    <meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0D1418" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F5F7F8" />
     <title>Ervin | Site Reliability Engineer</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
