@@ -1,5 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import { btnPrimary, btnSecondary, container, tag } from "./ui";
+import { blogLink } from "../lib/route";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
 import f1HubImage from "../assets/images/projects/f1pulse.png";
@@ -15,6 +16,7 @@ interface Project {
   tags: string[];
   demoLink: string;
   codeLink?: string;
+  posts?: { label: string; slug: string }[];
   featured?: boolean;
 }
 
@@ -23,11 +25,15 @@ const projects: Project[] = [
     id: 5,
     title: "Homelab",
     description:
-      "A self-hosted Mac Mini running Docker-based monitoring and automation, built with AI-assisted development. It runs a Starlink monitoring stack with Grafana dashboards for home internet health, and ph-alerts, which sends Telegram notifications for PAGASA typhoon signals and weekly fuel price changes.",
+      "A Mac Mini at home that runs my self-hosted projects in Docker, reachable only on my home network. Every project shares one monitoring stack (Prometheus, Loki, Alertmanager and Grafana) and sends its alerts to one Telegram chat. It started with a Starlink monitor that tells real outages apart from firmware update reboots.",
     image: homelabImage,
-    imageAlt: "Diagram of the homelab: a Mac Mini running Docker services for Starlink monitoring, Grafana, and ph-alerts, feeding a connection health dashboard and Telegram alerts",
-    tags: ["docker", "grafana", "telegram bot api", "macos"],
+    imageAlt: "Diagram of the homelab: the Starlink monitor, outage logger and other projects on a Mac Mini feed a shared monitoring stack of Prometheus, Loki, Alertmanager and Grafana, which drives dashboards and Telegram alerts",
+    tags: ["docker", "prometheus", "grafana", "loki", "telegram bot api"],
     demoLink: "#",
+    posts: [
+      { label: "Read the Starlink post", slug: "home-internet-monitoring" },
+      { label: "Read the homelab post", slug: "homelab-overview" },
+    ],
     featured: true,
   },
   {
@@ -82,6 +88,8 @@ const TAG_LABELS: Record<string, string> = {
   "artificial intelligence": "AI",
   docker: "Docker",
   grafana: "Grafana",
+  prometheus: "Prometheus",
+  loki: "Loki",
   "telegram bot api": "Telegram Bot API",
   macos: "macOS",
 };
@@ -104,7 +112,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.imageAlt ?? `Screenshot of ${project.title}`}
-                  className={`w-full object-cover ${project.featured ? "h-56 md:h-72 lg:h-full" : "h-48"}`}
+                  className={`w-full ${project.featured ? "aspect-[20/11] lg:aspect-auto lg:h-full object-contain bg-[#0D1418]" : "h-48 object-cover"}`}
                 />
               </div>
               <div className={`flex flex-1 flex-col p-5 sm:p-6 ${project.featured ? "lg:p-8 lg:justify-center" : ""}`}>
@@ -136,6 +144,15 @@ const Projects = () => {
                       View code
                     </a>
                   )}
+                  {project.posts?.map((post, i) => (
+                    <a
+                      key={post.slug}
+                      href={blogLink(post.slug)}
+                      className={`${i === 0 && project.demoLink === "#" ? btnPrimary : btnSecondary} text-sm px-4 py-2`}
+                    >
+                      {post.label}
+                    </a>
+                  ))}
                 </div>
               </div>
             </article>
