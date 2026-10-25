@@ -1,7 +1,7 @@
 // Minimal path routing: "/" is the home page, "/blog" lists posts,
 // "/blog/<slug>" shows one post. Static copies of index.html are written
 // for blog paths at build time (see vite.config.ts), and public/404.html
-// covers anything else on GitHub Pages.
+// is shown for anything else on GitHub Pages.
 
 export type Route = { page: "home" } | { page: "blog" } | { page: "post"; slug: string };
 

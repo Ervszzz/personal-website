@@ -58,4 +58,4 @@ All three fields are required (the build fails without them). Posts are loaded b
 
 **Privacy:** Do not add a phone number or home location anywhere on the site, including meta tags.
 
-**Public assets:** `public/resume/` for the resume PDF. `public/favicon.svg` adapts to light/dark. `public/og-image.png` is the social share image. `public/404.html` is copied to `dist/` at build time (via a vite plugin in `vite.config.ts`) to handle GitHub Pages SPA routing.
+**Public assets:** `public/resume/` for the resume PDF. `public/favicon.svg` adapts to light/dark. `public/og-image.png` is the social share image. `public/404.html` is a standalone page GitHub Pages serves for unknown paths; it's copied to `dist/` by a plugin in `vite.config.ts`, and it repeats the colour tokens from `src/index.css`, so update both if the palette changes.
