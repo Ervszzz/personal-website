@@ -9,6 +9,7 @@ const skillCategories = [
   { title: "Languages", skills: ["Python", "Bash", "JavaScript", "PHP", "C#", "SQL"] },
   { title: "Frameworks and frontend", skills: ["React", "Laravel", "Tailwind CSS", "HTML and CSS", "Mocha"] },
   { title: "Tools and workflow", skills: ["Git", "GitHub", "Jira", "Confluence", "Linear", "Notion"] },
+  { title: "Certifications", skills: ["EF SET English Certificate (C2 Proficient), 2023"] },
 ];
 
 const Skills = () => {

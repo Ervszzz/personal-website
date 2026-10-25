@@ -8,12 +8,6 @@ const entries = [
     detail: "Saint Louis University",
     note: "Focus: Software Development & Data Engineering",
   },
-  {
-    period: "2023",
-    title: "EF SET English Certificate",
-    detail: "C2 Proficient",
-    note: "Certification",
-  },
 ];
 
 const Education = () => {
