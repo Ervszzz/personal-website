@@ -232,6 +232,7 @@ section {
 .dg-text { fill: rgb(var(--c-ink)); font-weight: 600; }
 .dg-muted { fill: rgb(var(--c-muted)); }
 .dg-path { stroke: rgb(var(--c-accent)); }
+.dg-arrow { fill: rgb(var(--c-accent)); }
 .dg-check { stroke: rgb(var(--c-warn)); }
 .dg-check-fill { fill: rgb(var(--c-warn)); }
 .dg-check-text { fill: rgb(var(--c-accent-ink)); font-weight: 600; }
