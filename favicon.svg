@@ -1,5 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0B0C10"/>
-  <rect x="1" y="1" width="30" height="30" fill="none" stroke="#66FCF1" stroke-width="1.5"/>
-  <text x="16" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#66FCF1" text-anchor="middle">EF</text>
+  <!-- Four "uptime" bars, matching the hero. Colors follow the browser's light/dark setting. -->
+  <style>
+    .tile { fill: #0B7A75; }
+    .bar { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #3FD4C7; }
+      .bar { fill: #0D1418; }
+    }
+  </style>
+  <rect class="tile" width="32" height="32" rx="7"/>
+  <rect class="bar" x="7" y="9" width="3" height="14" rx="1"/>
+  <rect class="bar" x="12.3" y="9" width="3" height="14" rx="1"/>
+  <rect class="bar" x="17.6" y="9" width="3" height="14" rx="1"/>
+  <rect class="bar" x="22.9" y="9" width="3" height="14" rx="1" opacity="0.45"/>
 </svg>
