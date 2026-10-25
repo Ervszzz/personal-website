@@ -21,17 +21,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 1,
-    title: "F1 Pulse",
-    description:
-      "Real-time Formula 1 data interface. Access race telemetry, driver statistics, and circuit analytics.",
-    image: f1HubImage,
-    tags: ["react", "javascript", "tailwindcss", "artificial intelligence"],
-    demoLink: "https://f1pulseapp.vercel.app/",
-    codeLink: "https://github.com/Ervszzz/formula1-hub",
-    featured: true,
-  },
-  {
     id: 5,
     title: "Homelab",
     description:
@@ -40,6 +29,17 @@ const projects: Project[] = [
     imageAlt: "Diagram of the homelab: a Mac Mini running Docker services for Starlink monitoring, Grafana, and ph-alerts, feeding a connection health dashboard and Telegram alerts",
     tags: ["docker", "grafana", "telegram bot api", "macos"],
     demoLink: "#",
+    featured: true,
+  },
+  {
+    id: 1,
+    title: "F1 Pulse",
+    description:
+      "Real-time Formula 1 data interface. Access race telemetry, driver statistics, and circuit analytics.",
+    image: f1HubImage,
+    tags: ["react", "javascript", "tailwindcss", "artificial intelligence"],
+    demoLink: "https://f1pulseapp.vercel.app/",
+    codeLink: "https://github.com/Ervszzz/formula1-hub",
   },
   {
     id: 2,
