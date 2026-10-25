@@ -9,7 +9,6 @@ import Education from "./components/Education";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ChatBot from "./components/ChatBot";
 import BackToTop from "./components/BackToTop";
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
       </main>
       <Footer />
 
-      <ChatBot />
       <BackToTop />
     </div>
   );
