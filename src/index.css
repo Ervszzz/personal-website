@@ -2,145 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles below */
+/* Theme tokens (RGB channels). Light is the default; .dark on <html> switches. */
+:root {
+  --c-bg: 245 247 248;
+  --c-surface: 255 255 255;
+  --c-ink: 14 26 36;
+  --c-muted: 91 107 120;
+  --c-line: 217 224 229;
+  --c-accent: 11 122 117;
+  --c-accent-ink: 255 255 255;
+  --c-ok: 31 140 78;
+  --c-warn: 178 106 0;
+  color-scheme: light;
+}
+
+.dark {
+  --c-bg: 13 20 24;
+  --c-surface: 19 29 35;
+  --c-ink: 232 238 241;
+  --c-muted: 143 161 173;
+  --c-line: 36 50 58;
+  --c-accent: 63 212 199;
+  --c-accent-ink: 13 20 24;
+  --c-ok: 62 207 142;
+  --c-warn: 242 179 61;
+  color-scheme: dark;
+}
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Adjust based on header height */
+  scroll-padding-top: 5rem; /* Fixed header height */
 }
 
-:root {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: #333333;
-  background-color: #f5f5f5;
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(var(--c-bg));
+  color: rgb(var(--c-ink));
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
+/* Theme switch fades colors instead of snapping (only after a toggle) */
+.theme-ready body,
+.theme-ready body * {
+  transition-property: background-color, border-color, color, fill;
+  transition-duration: 0.2s;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
 }
 
-h1 {
-  font-size: 2.5rem;
+::selection {
+  background-color: rgb(var(--c-accent) / 0.25);
 }
 
-h2 {
-  font-size: 2rem;
+section {
+  scroll-margin-top: 5rem;
 }
 
-h3 {
-  font-size: 1.75rem;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-/* Buttons */
-.btn {
-  @apply px-6 py-3 rounded-md font-medium transition-all duration-300;
-}
-
-.btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700;
-}
-
-.btn-secondary {
-  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
-}
-
-.btn-outline {
-  @apply border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
-}
-
-/* Container */
-.container {
-  @apply px-4 mx-auto;
-  max-width: 1200px;
-}
-
-/* Section */
-.section {
-  @apply py-16;
-}
-
-.section-title {
-  @apply text-3xl font-bold text-center mb-12;
-}
-
-/* Scroll reveal animation */
+/* Scroll reveal: a quiet fade, no movement */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease;
 }
 .scroll-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Section fade-in on load */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Career uptime bars fill in left to right, once */
+@keyframes bar-in {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
 }
-.section-fade {
-  animation: fade-in-up 0.5s ease both;
-}
-main > section {
-  animation: fade-in-up 0.5s ease both;
+.uptime-bar {
+  transform-origin: bottom;
+  animation: bar-in 0.4s ease-out both;
 }
 
-/* WorkExperience timeline animation */
-@keyframes timeline-pulse {
-  0% { transform: translateY(-100%) translateX(-50%); opacity: 0; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(1000%) translateX(-50%); opacity: 0; }
-}
-.animate-timeline-pulse {
-  animation: timeline-pulse 10s infinite;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-
-  h2 {
-    font-size: 1.75rem;
+  .scroll-reveal {
+    opacity: 1;
+    transition: none;
   }
-
-  h3 {
-    font-size: 1.5rem;
+  .uptime-bar {
+    animation: none;
   }
-
-  .section {
-    @apply py-10;
-  }
-
-  .section-title {
-    @apply mb-8;
+  .theme-ready body,
+  .theme-ready body * {
+    transition: none;
   }
 }

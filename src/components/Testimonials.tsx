@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useScrollReveal } from "../hooks/useScrollReveal";
+import SectionHeading from "./SectionHeading";
+import { container } from "./ui";
 
 interface Testimonial {
   name: string;
@@ -36,85 +37,74 @@ const testimonials: Testimonial[] = [
 ];
 
 const QuoteIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+  <svg className={className} fill="currentColor" aria-hidden="true" viewBox="0 0 24 24">
     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
   </svg>
 );
 
 const Testimonials = () => {
-  const ref = useScrollReveal<HTMLDivElement>();
   const [active, setActive] = useState(0);
 
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="py-20 bg-tech-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-cyber-grid opacity-10 z-0" />
+    <section id="testimonials" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
+        <SectionHeading title="Recommendations" intro="What colleagues and mentors have said on LinkedIn." />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12 scroll-reveal" ref={ref}>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-tech-teal via-tech-cyan to-tech-purple mb-4">
-            Recommendations
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-tech-purple via-tech-cyan to-tech-teal mx-auto" />
-          <p className="mt-6 text-tech-light/80 max-w-2xl mx-auto">
-            What colleagues and mentors have said on LinkedIn.
-          </p>
-        </div>
+        <div className="grid gap-8 lg:grid-cols-[16rem_1fr] lg:gap-12">
+          {/* Selector */}
+          <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0" role="tablist" aria-label="Recommendations">
+            {testimonials.map((t, i) => (
+              <button
+                key={t.name}
+                type="button"
+                role="tab"
+                id={`testimonial-tab-${i}`}
+                aria-selected={active === i}
+                aria-controls="testimonial-panel"
+                onClick={() => setActive(i)}
+                className={`shrink-0 text-left px-4 py-3 border-l-2 rounded-r-md transition-colors ${
+                  active === i
+                    ? "border-accent bg-surface text-ink"
+                    : "border-line text-muted hover:text-ink hover:border-ink/40"
+                }`}
+              >
+                <span className="block font-medium">{t.name}</span>
+                <span className="block text-xs mt-0.5 opacity-80">{t.relationship}</span>
+              </button>
+            ))}
+          </div>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Main card */}
-          <div className="bg-tech-card border border-tech-border rounded-lg p-8 relative overflow-hidden hover:border-tech-cyan/40 transition-all duration-300 hover:shadow-tech">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tech-teal opacity-50" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tech-teal opacity-50" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tech-teal opacity-50" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tech-teal opacity-50" />
-
-            <QuoteIcon className="w-8 h-8 text-tech-cyan/20 mb-4" />
-
-            <p className="text-tech-light/80 leading-relaxed text-sm whitespace-pre-line mb-6">
+          {/* Quote */}
+          <figure
+            id="testimonial-panel"
+            role="tabpanel"
+            aria-labelledby={`testimonial-tab-${active}`}
+            className="max-w-2xl"
+          >
+            <QuoteIcon className="w-7 h-7 text-accent/40 mb-4" />
+            <blockquote className="text-ink/90 text-lg leading-relaxed whitespace-pre-line">
               {current.text}
-            </p>
-
-            <div className="border-t border-tech-border/30 pt-4 flex items-center justify-between flex-wrap gap-3">
+            </blockquote>
+            <figcaption className="mt-6 pt-5 border-t border-line flex items-center justify-between flex-wrap gap-3">
               <div>
-                <p className="font-tech font-semibold text-tech-cyan">{current.name}</p>
-                <p className="text-tech-light/50 text-xs font-tech">{current.title}</p>
-                <span className="inline-block mt-1 px-2 py-0.5 bg-tech-dark border border-tech-purple/40 text-tech-purple text-xs font-tech rounded">
-                  {current.relationship}
-                </span>
+                <p className="font-medium text-ink">{current.name}</p>
+                <p className="text-sm text-muted">{current.title}</p>
               </div>
               <a
                 href="https://www.linkedin.com/in/ervin-fernandez/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-tech-light/30 hover:text-tech-cyan font-tech text-xs transition-colors duration-300"
+                className="flex items-center gap-1.5 text-sm font-medium text-accent hover:text-ink transition-colors"
               >
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
                 View on LinkedIn
               </a>
-            </div>
-          </div>
-
-          {/* Tab selectors */}
-          <div className="flex justify-center gap-3 mt-6 flex-wrap">
-            {testimonials.map((t, i) => (
-              <button
-                key={t.name}
-                onClick={() => setActive(i)}
-                className={`font-tech text-xs px-3 py-1.5 border rounded transition-all duration-200 ${
-                  active === i
-                    ? "border-tech-cyan text-tech-cyan bg-tech-cyan/10"
-                    : "border-tech-border text-tech-light/40 hover:border-tech-cyan/50 hover:text-tech-light/70"
-                }`}
-              >
-                {t.name.split(" ")[0]}
-              </button>
-            ))}
-          </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
