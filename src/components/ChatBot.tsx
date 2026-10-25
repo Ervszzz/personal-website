@@ -33,7 +33,7 @@ const faqs: FAQ[] = [
       "Tell me about your experience",
     ],
     answer:
-      "I'm currently a Site Reliability Engineer II at Zendesk, focused on incident management, system reliability, and deployment safety. Previously, I worked as a Python Developer at Kodexa, building AI/ML solutions and data engineering pipelines. My journey spans SRE, Python development, data engineering, and DevOps automation.",
+      "I'm currently a Software Engineer II – Site Reliability Engineer at Zendesk, focused on incident management, AI-assisted alert triage, and deployment safety. I built an AI alert triage bot that cut investigation time by 54% in its pilot. Previously, I worked as a Python Developer at Kodexa, building AI/ML solutions and data engineering pipelines. My journey spans SRE, Python development, data engineering, and DevOps automation.",
   },
   {
     questions: [
