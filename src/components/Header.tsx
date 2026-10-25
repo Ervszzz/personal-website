@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { container } from "./ui";
+import { homeLink, type Route } from "../lib/route";
 
 const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "blog", label: "Blog" },
   { id: "education", label: "Education" },
   { id: "testimonials", label: "Recommendations" },
   { id: "contact", label: "Contact" },
@@ -15,11 +17,17 @@ const NAV_ITEMS = [
 // Sections that count as "Experience" in the nav
 const SECTION_TO_NAV: Record<string, string> = { "featured-work": "experience" };
 
-const Header = () => {
+const Header = ({ route }: { route: Route }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    // Off the home page, only "Blog" can be the current section
+    if (route.page !== "home") {
+      setActiveSection("blog");
+      return;
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
       let current = "";
@@ -32,7 +40,7 @@ const Header = () => {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [route.page]);
 
   const linkClass = (id: string) =>
     `transition-colors ${activeSection === id ? "text-ink" : "text-muted hover:text-ink"}`;
@@ -40,13 +48,13 @@ const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-md">
       <div className={`${container} flex h-16 items-center justify-between gap-6`}>
-        <a href="#home" className="font-semibold tracking-tight text-ink">
+        <a href={homeLink("home")} className="font-semibold tracking-tight text-ink">
           Ervin Fernandez
         </a>
 
-        <nav className="hidden lg:flex items-center gap-6 text-sm" aria-label="Main">
+        <nav className="hidden lg:flex items-center gap-5 text-sm" aria-label="Main">
           {NAV_ITEMS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} aria-current={activeSection === id ? "true" : undefined} className={linkClass(id)}>
+            <a key={id} href={homeLink(id)} aria-current={activeSection === id ? "true" : undefined} className={linkClass(id)}>
               {label}
             </a>
           ))}
@@ -79,7 +87,7 @@ const Header = () => {
             {NAV_ITEMS.map(({ id, label }) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={homeLink(id)}
                 onClick={() => setIsMenuOpen(false)}
                 aria-current={activeSection === id ? "true" : undefined}
                 className={`py-2.5 ${linkClass(id)}`}
