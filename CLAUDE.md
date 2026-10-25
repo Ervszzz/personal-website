@@ -40,7 +40,7 @@ Single-page React app (Vite + TypeScript) hosted on GitHub Pages at `/personal-w
 
 **Scroll animations:** `useScrollReveal` (`src/hooks/useScrollReveal.ts`) returns a ref; attach it to an element with `className="scroll-reveal"` and `scroll-visible` is added when it enters the viewport (a quiet fade, defined in `src/index.css`). `SectionHeading` already uses it. All motion is disabled under `prefers-reduced-motion`.
 
-**Projects (`src/components/Projects.tsx`):** Project data is a static array at the top of the file. `featured: true` makes a project span full width. `codeLink` is optional, and `demoLink: "#"` hides the demo button. `imageAlt` overrides the default "Screenshot of ..." alt text. Project images live in `src/assets/images/projects/`. Tag display names come from `TAG_LABELS`; a tag without an entry shows as written.
+**Projects (`src/components/Projects.tsx`):** Project data is a static array at the top of the file. `featured: true` makes a project span full width. `codeLink` is optional, and `demoLink: "#"` hides the demo button. `posts` adds buttons linking to blog posts by slug. `imageAlt` overrides the default "Screenshot of ..." alt text. Project images live in `src/assets/images/projects/`. Tag display names come from `TAG_LABELS`; a tag without an entry shows as written.
 
 **Blog:** Each post is a Markdown file in `src/content/blog/`; the file name is the URL slug. To add a post, create `src/content/blog/<slug>.md` starting with front matter:
 

@@ -1,47 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
-  <!-- Homelab architecture diagram: Mac Mini running Docker services that feed Grafana and Telegram -->
+  <!-- Homelab overview: projects on the Mac Mini feed one monitoring stack, which drives dashboards and Telegram alerts -->
   <rect width="800" height="440" fill="#0D1418"/>
-  <g transform="translate(0 20)">
-  <g stroke="#24323A" stroke-width="1">
-    <path d="M0 80H800M0 160H800M0 240H800M0 320H800M80 0V400M160 0V400M240 0V400M320 0V400M400 0V400M480 0V400M560 0V400M640 0V400M720 0V400" opacity="0.45"/>
+  <g stroke="#24323A" stroke-width="1" opacity="0.45">
+    <path d="M0 80H800M0 160H800M0 240H800M0 320H800M0 400H800M80 0V440M160 0V440M240 0V440M320 0V440M400 0V440M480 0V440M560 0V440M640 0V440M720 0V440"/>
   </g>
 
   <!-- Host -->
-  <rect x="40" y="60" width="400" height="280" rx="14" fill="#131D23" stroke="#3FD4C7" stroke-opacity="0.5"/>
-  <text x="64" y="96" fill="#E8EEF1" font-size="18" font-weight="600">Mac Mini</text>
-  <text x="64" y="118" fill="#8FA1AD" font-size="13">macOS, always on</text>
+  <rect x="30" y="50" width="450" height="340" rx="14" fill="#131D23" stroke="#3FD4C7" stroke-opacity="0.5"/>
+  <text x="54" y="86" fill="#E8EEF1" font-size="18" font-weight="600">Mac Mini</text>
+  <text x="54" y="108" fill="#8FA1AD" font-size="13">Docker (OrbStack), home network only</text>
 
-  <!-- Docker boundary -->
-  <rect x="64" y="138" width="352" height="178" rx="10" fill="none" stroke="#8FA1AD" stroke-opacity="0.6" stroke-dasharray="6 5"/>
-  <text x="80" y="160" fill="#8FA1AD" font-size="12">Docker</text>
-
-  <!-- Containers -->
+  <!-- Projects -->
   <g font-size="14" font-weight="600">
-    <rect x="80" y="172" width="148" height="56" rx="8" fill="#0D1418" stroke="#24323A"/>
-    <circle cx="96" cy="200" r="4" fill="#3ECF8E"/>
-    <text x="108" y="205" fill="#E8EEF1">Starlink monitor</text>
+    <rect x="54" y="140" width="164" height="52" rx="8" fill="#0D1418" stroke="#24323A"/>
+    <circle cx="72" cy="166" r="4" fill="#3ECF8E"/>
+    <text x="84" y="171" fill="#E8EEF1">Starlink monitor</text>
 
-    <rect x="252" y="172" width="148" height="56" rx="8" fill="#0D1418" stroke="#24323A"/>
-    <circle cx="268" cy="200" r="4" fill="#3ECF8E"/>
-    <text x="280" y="205" fill="#E8EEF1">Grafana</text>
+    <rect x="54" y="208" width="164" height="52" rx="8" fill="#0D1418" stroke="#24323A"/>
+    <circle cx="72" cy="234" r="4" fill="#3ECF8E"/>
+    <text x="84" y="239" fill="#E8EEF1">Outage logger</text>
 
-    <rect x="80" y="244" width="148" height="56" rx="8" fill="#0D1418" stroke="#24323A"/>
-    <circle cx="96" cy="272" r="4" fill="#3ECF8E"/>
-    <text x="108" y="277" fill="#E8EEF1">ph-alerts</text>
+    <rect x="54" y="276" width="164" height="52" rx="8" fill="none" stroke="#8FA1AD" stroke-opacity="0.6" stroke-dasharray="5 4"/>
+    <text x="72" y="307" fill="#8FA1AD" font-weight="500">Other projects</text>
   </g>
-  <path d="M228 200H252" stroke="#3FD4C7" stroke-width="2"/>
+
+  <!-- Shared monitoring stack -->
+  <rect x="262" y="140" width="194" height="188" rx="10" fill="#0D1418" stroke="#3FD4C7"/>
+  <text x="282" y="172" fill="#E8EEF1" font-size="14" font-weight="600">Shared monitoring</text>
+  <g fill="#8FA1AD" font-size="13">
+    <text x="282" y="206">Prometheus</text>
+    <text x="282" y="234">Loki</text>
+    <text x="282" y="262">Alertmanager</text>
+    <text x="282" y="290">Grafana</text>
+  </g>
+
+  <g stroke="#3FD4C7" stroke-width="2" fill="none">
+    <path d="M218 166H240M218 234H262M218 302H240M240 166V302"/>
+    <path d="M456 190H530"/>
+    <path d="M456 290H530"/>
+  </g>
 
   <!-- Outputs -->
-  <path d="M400 200H520" stroke="#3FD4C7" stroke-width="2"/>
-  <path d="M228 272H520" stroke="#F2B33D" stroke-width="2"/>
+  <rect x="530" y="122" width="240" height="120" rx="10" fill="#131D23" stroke="#24323A"/>
+  <text x="550" y="152" fill="#E8EEF1" font-size="14" font-weight="600">Dashboards</text>
+  <polyline points="550,218 576,204 600,210 624,190 650,196 674,180 700,188 724,174 750,182" fill="none" stroke="#3FD4C7" stroke-width="2.5" stroke-linejoin="round"/>
 
-  <rect x="520" y="150" width="240" height="100" rx="10" fill="#131D23" stroke="#24323A"/>
-  <text x="540" y="178" fill="#E8EEF1" font-size="14" font-weight="600">Connection health</text>
-  <polyline points="540,228 566,214 590,220 614,200 640,206 664,190 690,198 714,184 740,192" fill="none" stroke="#3FD4C7" stroke-width="2.5" stroke-linejoin="round"/>
-
-  <rect x="520" y="262" width="240" height="78" rx="10" fill="#131D23" stroke="#24323A"/>
-  <text x="540" y="290" fill="#E8EEF1" font-size="14" font-weight="600">Telegram alerts</text>
-  <text x="540" y="314" fill="#8FA1AD" font-size="12">Typhoon signals, fuel prices</text>
-  <circle cx="738" cy="285" r="5" fill="#F2B33D"/>
-  </g>
+  <rect x="530" y="254" width="240" height="78" rx="10" fill="#131D23" stroke="#24323A"/>
+  <text x="550" y="284" fill="#E8EEF1" font-size="14" font-weight="600">Telegram alerts</text>
+  <text x="550" y="308" fill="#8FA1AD" font-size="12">One chat for every alert</text>
+  <circle cx="748" cy="279" r="5" fill="#F2B33D"/>
 </svg>
