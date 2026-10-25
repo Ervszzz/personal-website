@@ -40,7 +40,7 @@ const experiences: Experience[] = [
     company: "Kodexa",
     period: "Oct 2023 – May 2025",
     highlights: [
-      "Owned 7+ automated SQL reports (daily, weekly, monthly) and the ETL pipelines behind them.",
+      "Built ETL pipelines with Python, GitHub Actions and Cronicle that generate 7+ daily, weekly and monthly reports in minutes, replacing hours of manual work.",
       "Monitored production with Datadog and Betterstack, fixing errors and securing credentials with AWS-managed secrets.",
     ],
     details: (
@@ -55,8 +55,8 @@ const experiences: Experience[] = [
         <div>
           <h4 className="text-ink font-medium mb-2">Data engineering</h4>
           <ul className={listClass}>
-            <li>Built ETL processes for data extraction, transformation, and loading.</li>
-            <li>Provided actionable insights through data analysis and reporting.</li>
+            <li>Designed and built the ETL pipelines myself, scheduled with GitHub Actions and Cronicle.</li>
+            <li>Replaced manual end-of-period reporting that took 1.5+ hours each day, 2.5+ hours each week and 4+ hours each month; the reports now generate within minutes.</li>
           </ul>
         </div>
         <div>
@@ -68,7 +68,7 @@ const experiences: Experience[] = [
         </div>
       </div>
     ),
-    technologies: ["Python", "Datadog", "Betterstack", "AWS", "SQL", "ETL", "AI/ML", "LLM", "Notion"],
+    technologies: ["Python", "GitHub Actions", "Cronicle", "Datadog", "Betterstack", "AWS", "SQL", "ETL", "AI/ML", "LLM", "Notion"],
   },
   {
     id: 3,
