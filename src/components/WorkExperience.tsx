@@ -21,19 +21,22 @@ function getOrdinalSuffix(n: number): string {
 const experiences: Experience[] = [
   {
     id: 1,
-    title: "Site Reliability Engineer II",
+    title: "Software Engineer II – Site Reliability Engineer",
     company: "Zendesk",
     period: "May 2025 - Present",
     summary:
-      "SRE focused on system reliability, incident management, and safe deployment practices across cloud infrastructure.",
+      "SRE focused on incident response, AI-assisted alert triage, and safe deployment practices across cloud infrastructure.",
     description: (
       <ul className="list-disc pl-5 space-y-2 text-tech-text">
-        <li>Perform on-call support by promptly responding to alerts and pages, actively managing and resolving incidents to maintain high system reliability.</li>
-        <li>Review and approve GitHub pull requests and deployment requests to ensure secure, stable, and efficient releases.</li>
-        <li>Maintain and improve runbooks and alert descriptions to ensure accurate, actionable guidance during incidents.</li>
+        <li>Built an AI alert triage bot that investigates alerts and suggests next steps: 177 alerts in a one-month pilot, 96% accurate findings, and 54% faster investigations (approximately 90 hours saved).</li>
+        <li>Resolve 10+ SEV-1 to SEV-4 incidents monthly as an on-call engineer, using incident.io and Datadog.</li>
+        <li>Built Claude Code tooling that automates alert and runbook review and onboarding.</li>
+        <li>Review deployment PRs and GitHub Actions CI/CD pipelines to keep releases safe.</li>
+        <li>Tune Datadog monitors and maintain runbooks to keep alerts accurate and actionable.</li>
+        <li>Contribute investigation findings to incident postmortems and root-cause analysis.</li>
       </ul>
     ),
-    technologies: ["incident.io", "Atlassian", "Kubernetes", "AWS", "DataDog"],
+    technologies: ["Python", "Datadog", "incident.io", "Bash", "GitHub Actions", "AWS", "Kubernetes", "AI", "Jira", "Confluence"],
   },
   {
     id: 2,

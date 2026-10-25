@@ -183,10 +183,10 @@ const Hero = () => {
             <div className="md:w-2/3 md:pl-12">
               <p className="text-tech-light/80 mb-6 leading-relaxed">
                 Currently working as a{" "}
-                <span className="text-tech-cyan">Site Reliability Engineer II at Zendesk</span>,
+                <span className="text-tech-cyan">Software Engineer II – Site Reliability Engineer at Zendesk</span>,
                 focused on{" "}
                 <span className="text-tech-teal">incident management</span>,
-                system reliability, and safe deployment practices across
+                AI-assisted alert triage, and safe deployment practices across
                 cloud infrastructure.
               </p>
 

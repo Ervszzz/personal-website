@@ -16,12 +16,16 @@ const skillCategories: SkillCategory[] = [
     dotClass: "bg-tech-purple",
     skills: [
       { name: "DataDog", icon: "devicon-datadog-plain" },
+      { name: "Grafana", icon: "devicon-grafana-plain" },
       { name: "Betterstack", icon: "" },
       { name: "incident.io", icon: "" },
+      { name: "Docker", icon: "devicon-docker-plain" },
       { name: "ArgoCD", icon: "devicon-argocd-plain" },
       { name: "GitHub Actions", icon: "devicon-githubactions-plain" },
-      { name: "RPA", icon: "" },
       { name: "AWS", icon: "devicon-amazonwebservices-plain" },
+      { name: "Claude Code", icon: "" },
+      { name: "RPA", icon: "" },
+      { name: "Cronicle", icon: "" },
     ],
   },
   {
@@ -56,7 +60,10 @@ const skillCategories: SkillCategory[] = [
     textClass: "text-tech-pink",
     dotClass: "bg-tech-pink",
     skills: [
+      { name: "Git", icon: "devicon-git-plain" },
       { name: "GitHub", icon: "devicon-github-original" },
+      { name: "Jira", icon: "devicon-jira-plain" },
+      { name: "Confluence", icon: "devicon-confluence-plain" },
       { name: "Linear", icon: "" },
       { name: "Notion", icon: "devicon-notion-plain" },
       { name: "Kubernetes", icon: "devicon-kubernetes-plain" },
