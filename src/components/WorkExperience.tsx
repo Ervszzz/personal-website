@@ -40,7 +40,7 @@ const experiences: Experience[] = [
     company: "Kodexa",
     period: "Oct 2023 – May 2025",
     highlights: [
-      "Built ETL pipelines with Python, GitHub Actions and Cronicle that generate 7+ daily, weekly and monthly reports in minutes, saving 700+ hours of manual work a year.",
+      "Built ETL pipelines with Python, GitHub Actions and Cronicle that generate 7+ daily, weekly and monthly reports in minutes, saving 700+ hours (about 90 working days) of manual work a year.",
       "Monitored production with Datadog and Betterstack, fixing errors and securing credentials with AWS-managed secrets.",
     ],
     details: (
