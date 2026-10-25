@@ -40,24 +40,23 @@ const experiences: Experience[] = [
     company: "Kodexa",
     period: "Oct 2023 – May 2025",
     highlights: [
-      "Owned 7+ automated SQL reports (daily, weekly, monthly) and the ETL pipelines behind them.",
+      "Built ETL pipelines with Python, GitHub Actions and Cronicle that generate 7+ daily, weekly and monthly reports in minutes, saving 700+ hours (about 90 working days) of manual work a year.",
       "Monitored production with Datadog and Betterstack, fixing errors and securing credentials with AWS-managed secrets.",
     ],
     details: (
       <div className="space-y-4">
         <div>
-          <h4 className="text-ink font-medium mb-2">AI/ML development</h4>
+          <h4 className="text-ink font-medium mb-2">AI/ML</h4>
           <ul className={listClass}>
-            <li>Contributed to AI/ML model development and deployment.</li>
-            <li>Handled model training, evaluation, and optimization.</li>
-            <li>Designed and refined prompts for large language models.</li>
+            <li>Labelled data used to train and evaluate AI/ML models.</li>
+            <li>Wrote and refined prompts for large language models (prompt engineering) to improve output quality.</li>
           </ul>
         </div>
         <div>
           <h4 className="text-ink font-medium mb-2">Data engineering</h4>
           <ul className={listClass}>
-            <li>Built ETL processes for data extraction, transformation, and loading.</li>
-            <li>Provided actionable insights through data analysis and reporting.</li>
+            <li>Designed and built the ETL pipelines myself, scheduled with GitHub Actions and Cronicle.</li>
+            <li>Replaced manual end-of-period reporting that took 1.5+ hours each day, 2.5+ hours each week and 4+ hours each month; the reports now generate within minutes.</li>
           </ul>
         </div>
         <div>
@@ -69,7 +68,7 @@ const experiences: Experience[] = [
         </div>
       </div>
     ),
-    technologies: ["Python", "Datadog", "Betterstack", "AWS", "SQL", "ETL", "AI/ML", "LLM", "Notion"],
+    technologies: ["Python", "GitHub Actions", "Cronicle", "Datadog", "Betterstack", "AWS", "SQL", "ETL", "AI/ML", "LLM", "Notion"],
   },
   {
     id: 3,
