@@ -23,7 +23,7 @@ const faqs: FAQ[] = [
       "What are you good at?",
     ],
     answer:
-      "I'm skilled in frontend technologies like React, HTML, CSS, JavaScript, and TailwindCSS. For backend, I work with Python, PHP, Laravel, C#, and Mocha JS. I also have experience with DevOps tools like DataDog, Betterstack, ArgoCD, and GitHub Actions, as well as RPA (Robotic Process Automation).",
+      "My core is site reliability: Datadog, Grafana, incident.io, and Betterstack for observability and incidents, and AWS, Kubernetes, Docker, ArgoCD, and GitHub Actions for infrastructure. I write Python and Bash day to day, and I've also built with JavaScript, React, PHP, Laravel, and C#. Lately I build automation with Claude Code and LLMs.",
   },
   {
     questions: [
@@ -186,7 +186,7 @@ const ChatBot = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Close chat" : "Ask a question about Ervin"}
         aria-expanded={isOpen}
-        className="bg-tech-cyan hover:bg-tech-teal text-tech-dark p-3 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
+        className="bg-accent hover:bg-accent/85 text-accent-ink p-3 rounded-full shadow-lg transition-colors flex items-center justify-center"
       >
         {isOpen ? (
           <svg
@@ -223,19 +223,19 @@ const ChatBot = () => {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 sm:w-96 bg-tech-dark border border-tech-cyan shadow-xl rounded-lg overflow-hidden transition-all duration-300">
+        <div className="absolute bottom-16 right-0 w-[calc(100vw-2.5rem)] max-w-sm bg-surface border border-line shadow-xl rounded-lg overflow-hidden">
           {/* Chat header */}
-          <div className="bg-tech-gray-dark p-3 border-b border-tech-cyan/30">
-            <h3 className="text-tech-cyan font-tech text-lg">
+          <div className="p-4 border-b border-line">
+            <h3 className="font-semibold text-ink">
               Portfolio Assistant
             </h3>
-            <p className="text-tech-light/70 text-xs">
+            <p className="text-muted text-sm">
               Ask me about Ervin's skills & experience
             </p>
           </div>
 
           {/* Chat messages */}
-          <div className="h-80 overflow-y-auto p-3 bg-tech-gray-dark/50">
+          <div className="h-80 overflow-y-auto p-4 bg-bg">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -244,15 +244,15 @@ const ChatBot = () => {
                 }`}
               >
                 <div
-                  className={`inline-block p-2 rounded-lg max-w-[80%] ${
+                  className={`inline-block px-3 py-2 rounded-lg max-w-[85%] text-sm text-left ${
                     message.sender === "user"
-                      ? "bg-tech-cyan text-tech-dark"
-                      : "bg-tech-gray-dark text-tech-light"
+                      ? "bg-accent text-accent-ink"
+                      : "bg-surface border border-line text-ink"
                   }`}
                 >
                   {message.text}
                 </div>
-                <div className="text-xs text-tech-light/50 mt-1">
+                <div className="text-xs text-muted mt-1">
                   {message.timestamp.toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -266,7 +266,7 @@ const ChatBot = () => {
           {/* Chat input */}
           <form
             onSubmit={handleSubmit}
-            className="p-3 border-t border-tech-cyan/30 bg-tech-gray-dark"
+            className="p-3 border-t border-line"
           >
             <div className="flex">
               <input
@@ -274,11 +274,13 @@ const ChatBot = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask about skills, experience, etc."
-                className="flex-1 bg-tech-dark text-tech-light p-2 rounded-l-lg border border-tech-cyan/30 focus:outline-none focus:border-tech-cyan"
+                aria-label="Your question"
+                className="flex-1 min-w-0 bg-bg text-ink placeholder:text-muted/80 px-3 py-2 rounded-l-md border border-line focus:outline-none focus:border-accent"
               />
               <button
                 type="submit"
-                className="bg-tech-cyan hover:bg-tech-teal text-tech-dark p-2 rounded-r-lg transition-colors duration-300"
+                aria-label="Send question"
+                className="bg-accent hover:bg-accent/85 text-accent-ink px-3 rounded-r-md transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

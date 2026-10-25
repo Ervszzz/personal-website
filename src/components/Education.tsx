@@ -1,50 +1,39 @@
 import SectionHeading from "./SectionHeading";
+import { container } from "./ui";
 
-interface Education {
-  degree: string;
-  school: string;
-  period: string;
-  focus: string;
-}
-
-const educationList: Education[] = [
+const entries = [
   {
-    degree: "Bachelor of Science in Information Technology",
-    school: "Saint Louis University",
     period: "2015 – 2022",
-    focus: "Software Development & Data Engineering",
+    title: "Bachelor of Science in Information Technology",
+    detail: "Saint Louis University",
+    note: "Focus: Software Development & Data Engineering",
+  },
+  {
+    period: "2023",
+    title: "EF SET English Certificate",
+    detail: "C2 Proficient",
+    note: "Certification",
   },
 ];
 
-const certifications = [{ name: "EF SET English Certificate (C2 Proficient)", year: "2023" }];
-
 const Education = () => {
   return (
-    <section id="education" className="py-20 md:py-28 border-t border-tech-border/60">
-      <div className="container">
+    <section id="education" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
         <SectionHeading title="Education" />
 
-        <div className="max-w-4xl space-y-8">
-          {educationList.map((edu) => (
-            <div key={edu.degree} className="md:grid md:grid-cols-[10rem_1fr] md:gap-x-10">
-              <p className="font-mono text-sm text-tech-text-secondary md:text-right md:pt-1 mb-1">{edu.period}</p>
+        <ol className="border-t border-line">
+          {entries.map((e) => (
+            <li key={e.title} className="grid gap-2 border-b border-line py-6 md:grid-cols-[13rem_1fr] md:gap-10">
+              <p className="font-mono text-xs leading-7 text-muted">{e.period}</p>
               <div>
-                <h3 className="font-display text-xl md:text-2xl font-semibold text-tech-ink">{edu.degree}</h3>
-                <p className="mt-1 text-tech-cyan">{edu.school}</p>
-                <p className="mt-2 text-tech-text-secondary">Focus: {edu.focus}</p>
+                <h3 className="text-xl font-semibold tracking-tight text-ink">{e.title}</h3>
+                <p className="mt-0.5 text-accent font-medium">{e.detail}</p>
+                <p className="mt-1 text-muted">{e.note}</p>
               </div>
-            </div>
+            </li>
           ))}
-
-          {certifications.map((cert) => (
-            <div key={cert.name} className="md:grid md:grid-cols-[10rem_1fr] md:gap-x-10">
-              <p className="font-mono text-sm text-tech-text-secondary md:text-right md:pt-0.5 mb-1">{cert.year}</p>
-              <p className="text-tech-text">
-                <span className="text-tech-ink font-medium">Certification:</span> {cert.name}
-              </p>
-            </div>
-          ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

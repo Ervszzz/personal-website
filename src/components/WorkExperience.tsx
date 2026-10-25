@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import { container, listClass, tag } from "./ui";
 
 interface Experience {
   id: number;
@@ -11,8 +12,6 @@ interface Experience {
   details?: React.ReactNode;
   technologies: string[];
 }
-
-const listClass = "list-disc pl-5 space-y-2 marker:text-tech-teal";
 
 const experiences: Experience[] = [
   {
@@ -47,7 +46,7 @@ const experiences: Experience[] = [
     details: (
       <div className="space-y-4">
         <div>
-          <h4 className="text-tech-ink font-medium mb-2">AI/ML development</h4>
+          <h4 className="text-ink font-medium mb-2">AI/ML development</h4>
           <ul className={listClass}>
             <li>Contributed to AI/ML model development and deployment.</li>
             <li>Handled model training, evaluation, and optimization.</li>
@@ -55,14 +54,14 @@ const experiences: Experience[] = [
           </ul>
         </div>
         <div>
-          <h4 className="text-tech-ink font-medium mb-2">Data engineering</h4>
+          <h4 className="text-ink font-medium mb-2">Data engineering</h4>
           <ul className={listClass}>
             <li>Built ETL processes for data extraction, transformation, and loading.</li>
             <li>Provided actionable insights through data analysis and reporting.</li>
           </ul>
         </div>
         <div>
-          <h4 className="text-tech-ink font-medium mb-2">Documentation and automation</h4>
+          <h4 className="text-ink font-medium mb-2">Documentation and automation</h4>
           <ul className={listClass}>
             <li>Automated recurring operational tasks.</li>
             <li>Documented Python scripts and incident reports in Notion.</li>
@@ -109,39 +108,32 @@ const WorkExperience = () => {
     setExpanded((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
   return (
-    <section id="experience" className="py-20 md:py-28 border-t border-tech-border/60">
-      <div className="container">
+    <section id="experience" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
         <SectionHeading title="Experience" />
 
-        <ol className="max-w-4xl">
-          {experiences.map((exp, index) => {
+        <ol className="border-t border-line">
+          {experiences.map((exp) => {
             const isOpen = expanded.includes(exp.id);
-            const isLast = index === experiences.length - 1;
             const detailsId = `experience-details-${exp.id}`;
 
             return (
-              <li key={exp.id} className="md:grid md:grid-cols-[10rem_1fr] md:gap-x-10">
-                <p className="hidden md:block pt-1.5 text-right font-mono text-sm text-tech-text-secondary">
-                  {exp.period}
-                </p>
+              <li key={exp.id} className="grid gap-3 border-b border-line py-8 md:grid-cols-[13rem_1fr] md:gap-10">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 md:block">
+                  <p className="font-mono text-xs leading-6 text-muted">{exp.period}</p>
+                  {exp.current && (
+                    <p className="inline-flex items-center gap-1.5 text-sm text-ok md:mt-2">
+                      <span className="h-2 w-2 rounded-full bg-ok" aria-hidden="true" />
+                      Current role
+                    </p>
+                  )}
+                </div>
 
-                <div className={`relative pl-8 border-l ${isLast ? "pb-2 border-transparent" : "pb-14 border-tech-border"}`}>
-                  {/* Rail node: filled for the current role */}
-                  <span
-                    aria-hidden="true"
-                    className={`absolute -left-[6px] top-2 h-[11px] w-[11px] rounded-full ${
-                      exp.current
-                        ? "bg-tech-cyan shadow-[0_0_0_4px_rgba(102,252,241,0.15)]"
-                        : "bg-tech-dark border border-tech-teal"
-                    }`}
-                  />
-                  {isLast && <span aria-hidden="true" className="absolute left-0 top-0 h-3 border-l border-tech-border" />}
+                <div className="max-w-3xl">
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink">{exp.title}</h3>
+                  <p className="mt-0.5 text-accent font-medium">{exp.company}</p>
 
-                  <p className="md:hidden font-mono text-sm text-tech-text-secondary mb-1">{exp.period}</p>
-                  <h3 className="font-display text-xl md:text-2xl font-semibold text-tech-ink">{exp.title}</h3>
-                  <p className="mt-1 text-tech-cyan">{exp.company}</p>
-
-                  <ul className={`${listClass} mt-4 text-tech-text leading-relaxed`}>
+                  <ul className={`${listClass} mt-4 text-ink/90 leading-relaxed`}>
                     {exp.highlights.map((h) => (
                       <li key={h}>{h}</li>
                     ))}
@@ -149,7 +141,7 @@ const WorkExperience = () => {
 
                   {exp.details && (
                     <>
-                      <div id={detailsId} hidden={!isOpen} className="mt-4 text-tech-text leading-relaxed">
+                      <div id={detailsId} hidden={!isOpen} className="mt-4 text-ink/90 leading-relaxed">
                         {exp.details}
                       </div>
                       <button
@@ -157,7 +149,7 @@ const WorkExperience = () => {
                         onClick={() => toggle(exp.id)}
                         aria-expanded={isOpen}
                         aria-controls={detailsId}
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm text-tech-teal hover:text-tech-cyan transition-colors"
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-ink transition-colors"
                       >
                         {isOpen ? "Show less" : "Show more"}
                         <svg
@@ -173,12 +165,9 @@ const WorkExperience = () => {
                     </>
                   )}
 
-                  <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
+                  <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="Technologies">
                     {exp.technologies.map((tech) => (
-                      <li
-                        key={tech}
-                        className="px-2.5 py-1 font-mono text-xs text-tech-text-secondary bg-tech-tag border border-tech-border"
-                      >
+                      <li key={tech} className={tag}>
                         {tech}
                       </li>
                     ))}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import { container } from "./ui";
 
 interface Testimonial {
   name: string;
@@ -47,8 +48,8 @@ const Testimonials = () => {
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 border-t border-tech-border/60">
-      <div className="container">
+    <section id="testimonials" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
         <SectionHeading title="Recommendations" intro="What colleagues and mentors have said on LinkedIn." />
 
         <div className="grid gap-8 lg:grid-cols-[16rem_1fr] lg:gap-12">
@@ -63,10 +64,10 @@ const Testimonials = () => {
                 aria-selected={active === i}
                 aria-controls="testimonial-panel"
                 onClick={() => setActive(i)}
-                className={`shrink-0 text-left px-4 py-3 border-l-2 transition-colors duration-200 ${
+                className={`shrink-0 text-left px-4 py-3 border-l-2 rounded-r-md transition-colors ${
                   active === i
-                    ? "border-tech-cyan bg-tech-card text-tech-ink"
-                    : "border-tech-border text-tech-text-secondary hover:text-tech-ink hover:border-tech-teal"
+                    ? "border-accent bg-surface text-ink"
+                    : "border-line text-muted hover:text-ink hover:border-ink/40"
                 }`}
               >
                 <span className="block font-medium">{t.name}</span>
@@ -82,20 +83,20 @@ const Testimonials = () => {
             aria-labelledby={`testimonial-tab-${active}`}
             className="max-w-2xl"
           >
-            <QuoteIcon className="w-7 h-7 text-tech-teal/50 mb-4" />
-            <blockquote className="text-tech-text text-lg leading-relaxed whitespace-pre-line">
+            <QuoteIcon className="w-7 h-7 text-accent/40 mb-4" />
+            <blockquote className="text-ink/90 text-lg leading-relaxed whitespace-pre-line">
               {current.text}
             </blockquote>
-            <figcaption className="mt-6 pt-5 border-t border-tech-border flex items-center justify-between flex-wrap gap-3">
+            <figcaption className="mt-6 pt-5 border-t border-line flex items-center justify-between flex-wrap gap-3">
               <div>
-                <p className="font-medium text-tech-ink">{current.name}</p>
-                <p className="text-sm text-tech-text-secondary">{current.title}</p>
+                <p className="font-medium text-ink">{current.name}</p>
+                <p className="text-sm text-muted">{current.title}</p>
               </div>
               <a
                 href="https://www.linkedin.com/in/ervin-fernandez/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-tech-teal hover:text-tech-cyan transition-colors duration-200"
+                className="flex items-center gap-1.5 text-sm font-medium text-accent hover:text-ink transition-colors"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />

@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 const EMAIL = "ervsfernandez21@gmail.com";
 import emailjs from "@emailjs/browser";
 import SectionHeading from "./SectionHeading";
+import { container } from "./ui";
 
 interface FormData {
   name: string;
@@ -75,35 +76,35 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 border-t border-tech-border/60">
-      <div className="container">
+    <section id="contact" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
         <SectionHeading
           title="Get in touch"
           intro="Hiring for an SRE or platform role, or want to talk reliability? Send a message and I'll reply by email."
         />
 
         {/* Contact Grid */}
-        <div className="grid md:grid-cols-5 gap-8">
+        <div className="grid md:grid-cols-5 gap-5">
           {/* Contact Info */}
           <div className="md:col-span-2">
-            <div className="border border-tech-border bg-tech-card p-6 h-full">
+            <div className="rounded-lg border border-line bg-surface p-6 h-full">
 
-              <h3 className="font-display text-xl font-semibold text-tech-ink mb-6">
+              <h3 className="text-xl font-semibold tracking-tight text-ink mb-6">
                 Contact details
               </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="border border-tech-border p-3 mr-4 text-tech-cyan">
+                  <div className="rounded-md border border-line p-3 mr-4 text-accent">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-sm text-tech-text-secondary">Email</h4>
+                    <h4 className="text-sm text-muted">Email</h4>
                     <button
                       onClick={copyEmail}
-                      className="flex items-center gap-2 text-tech-ink hover:text-tech-cyan transition-colors duration-200 group"
+                      className="flex items-center gap-2 text-ink hover:text-accent transition-colors group"
                       title="Copy email address"
                     >
                       <span>{EMAIL}</span>
@@ -113,21 +114,21 @@ const Contact = () => {
                           : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         }
                       </svg>
-                      {copied && <span className="text-tech-cyan text-xs">Copied</span>}
+                      {copied && <span className="text-accent text-xs">Copied</span>}
                     </button>
                   </div>
                 </div>
 
               </div>
 
-              <div className="mt-8 pt-6 border-t border-tech-border/30">
-                <h4 className="text-sm text-tech-text-secondary mb-4">Elsewhere</h4>
+              <div className="mt-8 pt-6 border-t border-line">
+                <h4 className="text-sm text-muted mb-4">Elsewhere</h4>
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/Ervszzz/Ervszzz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 transition-colors duration-200"
+                    className="rounded-md border border-line hover:border-accent text-ink hover:text-accent p-2 transition-colors"
                     aria-label="GitHub"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -138,7 +139,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/ervin-fernandez/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-tech-border hover:border-tech-cyan text-tech-cyan p-2 transition-colors duration-200"
+                    className="rounded-md border border-line hover:border-accent text-ink hover:text-accent p-2 transition-colors"
                     aria-label="LinkedIn"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -154,10 +155,10 @@ const Contact = () => {
           <div className="md:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="border border-tech-border bg-tech-card p-6 relative"
+              className="rounded-lg border border-line bg-surface p-6 relative"
             >
 
-              <h3 className="font-display text-xl font-semibold text-tech-ink mb-6">
+              <h3 className="text-xl font-semibold tracking-tight text-ink mb-6">
                 Send a message
               </h3>
 
@@ -174,10 +175,10 @@ const Contact = () => {
               {submitMessage && (
                 <div
                   role="status"
-                  className={`p-4 mb-6 border ${
+                  className={`p-4 mb-6 rounded-md border ${
                     submitMessage.isError
-                      ? "border-red-500/50 bg-red-500/10 text-red-400"
-                      : "border-green-500/50 bg-green-500/10 text-green-400"
+                      ? "border-red-500/40 bg-red-500/10 text-red-700 dark:text-red-300"
+                      : "border-ok/40 bg-ok/10 text-ok"
                   }`}
                 >
                   <div className="flex items-center">
@@ -195,7 +196,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-tech-ink text-sm font-medium mb-2">Name</label>
+                  <label htmlFor="name" className="block text-ink text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -203,12 +204,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
+                    className="w-full rounded-md bg-bg border border-line px-4 py-3 text-ink placeholder:text-muted/80 focus:outline-none focus:border-accent focus-visible:outline-none focus:ring-2 focus:ring-accent/25 transition-colors"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-tech-ink text-sm font-medium mb-2">Email</label>
+                  <label htmlFor="email" className="block text-ink text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -216,14 +217,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
+                    className="w-full rounded-md bg-bg border border-line px-4 py-3 text-ink placeholder:text-muted/80 focus:outline-none focus:border-accent focus-visible:outline-none focus:ring-2 focus:ring-accent/25 transition-colors"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-tech-ink text-sm font-medium mb-2">Subject</label>
+                <label htmlFor="subject" className="block text-ink text-sm font-medium mb-2">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -231,13 +232,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300"
+                  className="w-full rounded-md bg-bg border border-line px-4 py-3 text-ink placeholder:text-muted/80 focus:outline-none focus:border-accent focus-visible:outline-none focus:ring-2 focus:ring-accent/25 transition-colors"
                   placeholder="What's this about?"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-tech-ink text-sm font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-ink text-sm font-medium mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -245,7 +246,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-tech-dark border border-tech-border px-4 py-3 text-tech-ink placeholder:text-tech-text-secondary/70 focus:outline-none focus:border-tech-cyan transition duration-300 resize-none"
+                  className="w-full rounded-md bg-bg border border-line px-4 py-3 text-ink placeholder:text-muted/80 focus:outline-none focus:border-accent focus-visible:outline-none focus:ring-2 focus:ring-accent/25 transition-colors resize-none"
                   placeholder="Your message here..."
                 />
               </div>
@@ -253,7 +254,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-tech-cyan hover:bg-tech-teal disabled:opacity-60 text-tech-dark font-semibold py-3 px-6 transition-colors duration-200 flex justify-center items-center"
+                className="w-full rounded-md bg-accent hover:bg-accent/85 disabled:opacity-60 text-accent-ink font-medium py-3 px-6 transition-colors flex justify-center items-center"
               >
                 {isSubmitting ? (
                   <>

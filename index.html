@@ -24,19 +24,23 @@
     <meta name="twitter:title" content="Ervin Fernandez | Site Reliability Engineer & DevOps" />
     <meta name="twitter:description" content="Software Engineer II (SRE) at Zendesk. Experienced in incident management, Python, AI/ML, data engineering, and DevOps automation." />
     <meta name="twitter:image" content="https://ervszzz.github.io/personal-website/og-image.png" />
+    <!-- Theme: saved choice, else system preference. Runs before paint to avoid a flash. -->
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.classList.toggle("dark", dark);
+      })();
+    </script>
+    <meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0D1418" media="(prefers-color-scheme: dark)" />
     <title>Ervin | Site Reliability Engineer</title>
-    <!-- Font Awesome for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- GitHub Pages SPA redirect -->

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import { btnPrimary, btnSecondary, container, tag } from "./ui";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
 import snakeGameImage from "../assets/images/projects/snake_game.png";
 import f1HubImage from "../assets/images/projects/f1pulse.png";
@@ -42,7 +43,7 @@ const projects: Project[] = [
     id: 3,
     title: "Portfolio Website",
     description:
-      "A modern tech-themed portfolio website built with React, TypeScript, TailwindCSS, and Artificial Intelligence. Features include responsive design, smooth animations, interactive navigation, and a tech-inspired UI with custom styling and components.",
+      "This site: a status-page inspired portfolio built with React, TypeScript, and Tailwind CSS, with light and dark themes. Built with help from AI.",
     image: portfolioImage,
     tags: ["react", "typescript", "tailwindcss", "artificial intelligence"],
     demoLink: "#",
@@ -83,21 +84,21 @@ const Projects = () => {
       : projects.filter((project) => project.tags.includes(activeFilter));
 
   return (
-    <section id="projects" className="py-20 md:py-28 border-t border-tech-border/60">
-      <div className="container">
+    <section id="projects" className="py-16 md:py-24 border-t border-line">
+      <div className={container}>
         <SectionHeading title="Projects" intro="Things I've built outside of work, from data apps to games." />
 
-        <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter projects by technology">
+        <div className="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter projects by technology">
           {filters.map((filter) => (
             <button
               key={filter}
               type="button"
               onClick={() => setActiveFilter(filter)}
               aria-pressed={activeFilter === filter}
-              className={`px-3.5 py-1.5 font-mono text-sm border transition-colors duration-200 ${
+              className={`rounded-full px-3.5 py-1 text-sm border transition-colors ${
                 activeFilter === filter
-                  ? "bg-tech-cyan text-tech-dark border-tech-cyan"
-                  : "text-tech-text border-tech-border hover:border-tech-cyan/60 hover:text-tech-cyan"
+                  ? "bg-ink text-bg border-ink"
+                  : "border-line text-muted hover:text-ink hover:border-ink/40"
               }`}
             >
               {TAG_DISPLAY[filter]}
@@ -105,51 +106,46 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className={`flex flex-col bg-tech-card border border-tech-border hover:border-tech-cyan/50 transition-colors duration-200 ${
+              className={`flex flex-col overflow-hidden rounded-lg border border-line bg-surface ${
                 project.featured ? "md:col-span-2 lg:col-span-3 lg:flex-row" : ""
               }`}
             >
-              <div className={`overflow-hidden border-b border-tech-border ${project.featured ? "lg:w-3/5 lg:border-b-0 lg:border-r" : ""}`}>
+              <div className={`overflow-hidden border-b border-line ${project.featured ? "lg:w-3/5 lg:border-b-0 lg:border-r" : ""}`}>
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.title}`}
                   className={`w-full object-cover ${project.featured ? "h-56 md:h-72 lg:h-full" : "h-48"}`}
                 />
               </div>
-              <div className={`flex flex-1 flex-col p-6 ${project.featured ? "lg:p-8 lg:justify-center" : ""}`}>
-                {project.featured && <p className="font-mono text-xs text-tech-amber mb-2">Featured</p>}
-                <h3 className={`font-display font-semibold text-tech-ink mb-2 ${project.featured ? "text-2xl md:text-3xl" : "text-xl"}`}>
+              <div className={`flex flex-1 flex-col p-5 sm:p-6 ${project.featured ? "lg:p-8 lg:justify-center" : ""}`}>
+                {project.featured && (
+                  <p className="mb-2 inline-flex items-center gap-1.5 text-sm text-warn">
+                    <span className="h-1.5 w-1.5 rounded-full bg-warn" aria-hidden="true" />
+                    Featured
+                  </p>
+                )}
+                <h3 className={`font-semibold tracking-tight text-ink mb-2 ${project.featured ? "text-2xl md:text-3xl" : "text-xl"}`}>
                   {project.title}
                 </h3>
-                <p className="text-tech-text leading-relaxed mb-5">{project.description}</p>
-                <ul className="flex flex-wrap gap-2 mb-6" aria-label="Technologies">
-                  {project.tags.map((tag) => (
-                    <li key={tag} className="px-2.5 py-1 font-mono text-xs text-tech-text-secondary bg-tech-tag border border-tech-border">
-                      {TAG_LABELS[tag] ?? tag}
+                <p className="text-ink/80 leading-relaxed mb-5">{project.description}</p>
+                <ul className="flex flex-wrap gap-1.5 mb-6" aria-label="Technologies">
+                  {project.tags.map((t) => (
+                    <li key={t} className={tag}>
+                      {TAG_LABELS[t] ?? t}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto flex flex-wrap gap-3">
+                <div className="mt-auto flex flex-wrap gap-2.5">
                   {project.demoLink !== "#" && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-tech-cyan hover:bg-tech-teal text-tech-dark font-semibold px-4 py-2 text-sm transition-colors duration-200"
-                    >
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} text-sm px-4 py-2`}>
                       Open live demo
                     </a>
                   )}
-                  <a
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-tech-cyan/60 hover:border-tech-cyan hover:bg-tech-cyan/10 text-tech-cyan font-semibold px-4 py-2 text-sm transition-colors duration-200"
-                  >
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} text-sm px-4 py-2`}>
                     View code
                   </a>
                 </div>
@@ -158,9 +154,9 @@ const Projects = () => {
           ))}
 
           {/* More projects placeholder */}
-          <div className="flex flex-col justify-center border border-dashed border-tech-border p-6 min-h-[240px]">
-            <h3 className="font-display text-xl font-semibold text-tech-ink mb-2">More projects in progress</h3>
-            <p className="text-tech-text-secondary leading-relaxed">
+          <div className="flex flex-col justify-center rounded-lg border border-dashed border-line p-6 min-h-[220px]">
+            <h3 className="text-xl font-semibold tracking-tight text-ink mb-2">More projects in progress</h3>
+            <p className="text-muted leading-relaxed">
               I'm building a few new things and will add them here when they're ready.
             </p>
           </div>
