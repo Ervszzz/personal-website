@@ -26,7 +26,9 @@ Deployment is handled automatically via GitHub Actions (`.github/workflows/deplo
 
 Single-page React app (Vite + TypeScript) hosted on GitHub Pages at `/personal-website/`. The design is a calm, status-page inspired portfolio for an SRE.
 
-**Section order in `App.tsx`:** Header → Hero → About → FeaturedWork → WorkExperience → Skills → Projects → Education → Testimonials → Contact → Footer, with `BackToTop` as a floating overlay. Each component renders its own `<section id="...">` with a `border-t border-line` separator. The Header nav highlights sections by these ids (`featured-work` maps to "Experience").
+**Pages and routing:** `src/lib/route.ts` maps the path to a page: `/` is the home page, `/blog/` the post list, `/blog/<slug>/` a post. `App.tsx` renders the matching page between `Header` and `Footer`. Use `homeLink(sectionId)` and `blogLink(slug)` for links so they work from any page; the Header uses `homeLink`, so its nav works from blog pages too.
+
+**Section order on the home page (`App.tsx`):** Header → Hero → About → FeaturedWork → WorkExperience → Skills → Projects → BlogSection → Education → Testimonials → Contact → Footer, with `BackToTop` as a floating overlay. Each component renders its own `<section id="...">` with a `border-t border-line` separator. The Header nav highlights sections by these ids (`featured-work` maps to "Experience"; on blog pages "Blog" is highlighted).
 
 **Hero:** `CareerUptime.tsx` draws one bar per month since Feb 2021, labelled by employer underneath, from the `ROLES` array in that file (0-indexed months, `end: null` for the current role). Update it when roles change. `FeaturedWork.tsx` holds the AI alert triage bot write-up and its pilot results.
 
@@ -39,6 +41,18 @@ Single-page React app (Vite + TypeScript) hosted on GitHub Pages at `/personal-w
 **Scroll animations:** `useScrollReveal` (`src/hooks/useScrollReveal.ts`) returns a ref; attach it to an element with `className="scroll-reveal"` and `scroll-visible` is added when it enters the viewport (a quiet fade, defined in `src/index.css`). `SectionHeading` already uses it. All motion is disabled under `prefers-reduced-motion`.
 
 **Projects (`src/components/Projects.tsx`):** Project data is a static array at the top of the file. `featured: true` makes a project span full width. `codeLink` is optional, and `demoLink: "#"` hides the demo button. `imageAlt` overrides the default "Screenshot of ..." alt text. Project images live in `src/assets/images/projects/`. Tags must be keys in `TAG_DISPLAY` to appear as filter buttons; display-only tags get labels in `TAG_LABELS`.
+
+**Blog:** Each post is a Markdown file in `src/content/blog/`; the file name is the URL slug. To add a post, create `src/content/blog/<slug>.md` starting with front matter:
+
+```markdown
+---
+title: Post title
+date: 2026-10-25
+summary: One or two sentences, used in the post list and share previews.
+---
+```
+
+All three fields are required (the build fails without them). Posts are loaded by `src/lib/posts.ts` (newest first), rendered with `marked`, and styled by `.post-body` in `src/index.css`. Images go in `public/blog/<slug>/` and are referenced as `/personal-website/blog/<slug>/<file>`; use WebP, and write raw `<figure>`/`<img>` HTML with `width`, `height`, `alt` and a `<figcaption>`. Inline SVG diagrams can use the theme-aware `dg-*` classes in `src/index.css`. The home page `BlogSection` shows the latest three posts. At build time the `blog-pages` plugin in `vite.config.ts` writes `dist/blog/index.html` and `dist/blog/<slug>/index.html` with each post's title, summary and URL in the meta tags, so links load directly on GitHub Pages; `src/lib/frontmatter.ts` is shared by the app and that plugin. Only publish facts the user has confirmed: no invented results, and no hostnames, local IPs or file paths from their setup.
 
 **Contact form** uses EmailJS (`@emailjs/browser`). Service ID, template ID and public key come from `VITE_EMAILJS_*` env vars (local `.env`, GitHub Actions secrets in CI).
 
