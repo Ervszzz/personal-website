@@ -87,6 +87,7 @@ const Testimonials = () => {
             <blockquote className="text-ink/90 text-lg leading-relaxed whitespace-pre-line">
               {current.text}
             </blockquote>
+            <QuoteIcon className="w-7 h-7 text-accent/40 block mt-4 ml-auto rotate-180" />
             <figcaption className="mt-6 pt-5 border-t border-line flex items-center justify-between flex-wrap gap-3">
               <div>
                 <p className="font-medium text-ink">{current.name}</p>
