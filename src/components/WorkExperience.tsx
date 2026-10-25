@@ -46,10 +46,9 @@ const experiences: Experience[] = [
     details: (
       <div className="space-y-4">
         <div>
-          <h4 className="text-ink font-medium mb-2">AI/ML development</h4>
+          <h4 className="text-ink font-medium mb-2">AI/ML</h4>
           <ul className={listClass}>
-            <li>Contributed to AI/ML model development and deployment.</li>
-            <li>Handled model training, evaluation, and optimization.</li>
+            <li>Labelled data used to train and evaluate AI/ML models.</li>
             <li>Designed and refined prompts for large language models.</li>
           </ul>
         </div>
