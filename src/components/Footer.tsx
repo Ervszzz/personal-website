@@ -49,9 +49,7 @@ const Footer = () => {
               Contact
             </h3>
             <ul className="space-y-2 font-tech text-sm text-tech-light/50">
-              <li>Binmaley Pangasinan, Philippines</li>
               <li>ervsfernandez21@gmail.com</li>
-              <li>+639457058871</li>
             </ul>
           </div>
         </div>

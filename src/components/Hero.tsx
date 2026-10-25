@@ -170,10 +170,6 @@ const Hero = () => {
 
               <div className="grid grid-cols-1 gap-4 mb-6">
                 <div>
-                  <h4 className="font-tech font-semibold text-tech-teal">Location:</h4>
-                  <p className="text-tech-light/80">Binmaley Pangasinan, Philippines</p>
-                </div>
-                <div>
                   <h4 className="font-tech font-semibold text-tech-teal">Availability:</h4>
                   <p className="text-tech-light/80">Employed · Open to opportunities</p>
                 </div>
