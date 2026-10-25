@@ -2,80 +2,118 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>404 | Ervin Fernandez</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found | Ervin Fernandez</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/personal-website/favicon.svg" />
+    <!-- Same theme choice as the main site: light unless the visitor picked dark -->
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        document.documentElement.classList.toggle("dark", saved === "dark");
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
+      /* Tokens copied from src/index.css */
+      :root {
+        --c-bg: 245 247 248;
+        --c-surface: 255 255 255;
+        --c-ink: 14 26 36;
+        --c-muted: 91 107 120;
+        --c-line: 217 224 229;
+        --c-accent: 11 122 117;
+        --c-accent-ink: 255 255 255;
+        --c-warn: 178 106 0;
+        color-scheme: light;
+      }
+      .dark {
+        --c-bg: 13 20 24;
+        --c-surface: 19 29 35;
+        --c-ink: 232 238 241;
+        --c-muted: 143 161 173;
+        --c-line: 36 50 58;
+        --c-accent: 63 212 199;
+        --c-accent-ink: 13 20 24;
+        --c-warn: 242 179 61;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
       body {
+        margin: 0;
         min-height: 100vh;
-        background-color: #070709;
-        color: #e2e8f0;
-        font-family: 'Space Mono', 'JetBrains Mono', monospace;
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-      }
-      .container { max-width: 480px; }
-      .code {
-        font-size: 6rem;
-        font-weight: 700;
-        color: transparent;
-        background: linear-gradient(135deg, #00d4ff, #00ffcc);
-        -webkit-background-clip: text;
-        background-clip: text;
-        line-height: 1;
-        margin-bottom: 1rem;
-      }
-      .divider {
-        width: 80px;
-        height: 2px;
-        background: linear-gradient(90deg, #7c3aed, #00d4ff, #00ffcc);
-        margin: 1rem auto;
-      }
-      .message {
-        color: rgba(226, 232, 240, 0.6);
-        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: rgb(var(--c-bg));
+        color: rgb(var(--c-ink));
+        font-family: "Schibsted Grotesk", system-ui, sans-serif;
         line-height: 1.6;
-        font-size: 0.9rem;
+        -webkit-font-smoothing: antialiased;
       }
-      .link {
-        display: inline-block;
-        border: 1px solid #00d4ff;
-        color: #00d4ff;
-        padding: 0.75rem 1.5rem;
+      main { width: 100%; max-width: 36rem; margin: 0 auto; }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        border: 1px solid rgb(var(--c-line));
+        border-radius: 999px;
+        background: rgb(var(--c-surface));
+        color: rgb(var(--c-muted));
+        font-size: 0.875rem;
+      }
+      .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgb(var(--c-warn)); }
+      h1 {
+        margin: 1.5rem 0 0;
+        font-size: clamp(3rem, 12vw, 5rem);
+        line-height: 1;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+      }
+      p { margin: 1rem 0 0; font-size: 1.125rem; color: rgb(var(--c-muted)); }
+      code {
+        font-family: "Martian Mono", ui-monospace, monospace;
+        font-size: 0.8em;
+        color: rgb(var(--c-ink));
+        word-break: break-all;
+      }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.625rem 1.25rem;
+        border-radius: 6px;
+        font-weight: 500;
         text-decoration: none;
-        font-size: 0.85rem;
-        transition: background 0.3s;
+        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
       }
-      .link:hover { background: rgba(0, 212, 255, 0.1); }
-      .redirecting { font-size: 0.75rem; color: rgba(226,232,240,0.3); margin-top: 1.5rem; }
+      .primary { background: rgb(var(--c-accent)); color: rgb(var(--c-accent-ink)); }
+      .primary:hover { background: rgb(var(--c-accent) / 0.85); }
+      .secondary { border: 1px solid rgb(var(--c-line)); background: rgb(var(--c-surface)); color: rgb(var(--c-ink)); }
+      .secondary:hover { border-color: rgb(var(--c-accent)); color: rgb(var(--c-accent)); }
+      a:focus-visible { outline: 2px solid rgb(var(--c-accent)); outline-offset: 3px; }
+      @media (prefers-reduced-motion: reduce) { a { transition: none; } }
     </style>
-    <script>
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 1;
-      var l = window.location;
-      l.replace(
-        l.protocol + "//" + l.hostname +
-        (l.port ? ":" + l.port : "") +
-        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") +
-        "/?/" +
-        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
-        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-        l.hash
-      );
-    </script>
   </head>
   <body>
-    <div class="container">
-      <div class="code">404</div>
-      <div class="divider"></div>
-      <p class="message">Page not found. You might have followed a broken link or typed the URL incorrectly.</p>
-      <a class="link" href="/personal-website/">← Back to Home</a>
-      <p class="redirecting">Redirecting automatically...</p>
-    </div>
+    <main>
+      <span class="status"><span class="dot" aria-hidden="true"></span>404</span>
+      <h1>Page not found</h1>
+      <p>Nothing lives at <code id="path"></code>. The link may be old, or the address mistyped.</p>
+      <div class="actions">
+        <a class="primary" href="/personal-website/">Go to the home page</a>
+        <a class="secondary" href="/personal-website/blog/">Read the blog</a>
+      </div>
+    </main>
+    <script>
+      document.getElementById("path").textContent = window.location.pathname;
+    </script>
   </body>
 </html>
