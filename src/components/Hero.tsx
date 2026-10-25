@@ -31,7 +31,7 @@ const Hero = () => {
             </div>
 
             <p className="mt-6 text-sm text-tech-text-secondary">
-              Based in Pangasinan, Philippines. Open to new opportunities.
+              Open to new opportunities.
             </p>
           </div>
 

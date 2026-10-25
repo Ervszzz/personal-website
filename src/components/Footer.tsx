@@ -34,13 +34,11 @@ const Footer = () => {
           <div>
             <h2 className="text-sm font-medium text-tech-ink mb-4">Contact</h2>
             <ul className="space-y-2 text-sm text-tech-text-secondary">
-              <li>Binmaley, Pangasinan, Philippines</li>
               <li>
                 <a href="mailto:ervsfernandez21@gmail.com" className="hover:text-tech-cyan transition-colors duration-200">
                   ervsfernandez21@gmail.com
                 </a>
               </li>
-              <li>+639457058871</li>
             </ul>
           </div>
         </div>
