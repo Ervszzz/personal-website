@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { btnPrimary, btnSecondary, container, tag } from "./ui";
 import portfolioImage from "../assets/images/projects/portfolio_pic.png";
@@ -73,18 +72,13 @@ const projects: Project[] = [
   },
 ];
 
-const TAG_DISPLAY: Record<string, string> = {
-  all: "All",
+// Display labels for project tags
+const TAG_LABELS: Record<string, string> = {
   react: "React",
   typescript: "TypeScript",
   javascript: "JavaScript",
   python: "Python",
   tailwindcss: "TailwindCSS",
-};
-
-// Labels for tags that aren't filters
-const TAG_LABELS: Record<string, string> = {
-  ...TAG_DISPLAY,
   "artificial intelligence": "AI",
   docker: "Docker",
   grafana: "Grafana",
@@ -92,41 +86,14 @@ const TAG_LABELS: Record<string, string> = {
   macos: "macOS",
 };
 
-const filters = Object.keys(TAG_DISPLAY);
-
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
-
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects
-      : projects.filter((project) => project.tags.includes(activeFilter));
-
   return (
     <section id="projects" className="py-16 md:py-24 border-t border-line">
       <div className={container}>
         <SectionHeading title="Projects" intro="Things I've built outside of work, from data apps to games." />
 
-        <div className="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter projects by technology">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              aria-pressed={activeFilter === filter}
-              className={`rounded-full px-3.5 py-1 text-sm border transition-colors ${
-                activeFilter === filter
-                  ? "bg-ink text-bg border-ink"
-                  : "border-line text-muted hover:text-ink hover:border-ink/40"
-              }`}
-            >
-              {TAG_DISPLAY[filter]}
-            </button>
-          ))}
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredProjects.map((project) => (
+          {projects.map((project) => (
             <article
               key={project.id}
               className={`flex flex-col overflow-hidden rounded-lg border border-line bg-surface ${
